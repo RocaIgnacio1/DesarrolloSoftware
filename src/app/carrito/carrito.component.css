@@ -1,0 +1,31 @@
+.container {
+    background-color:white;
+    margin: 20px;
+    width: 100%;
+}
+
+table.custom-table tr:hover {
+    background-color: grey;
+}
+
+
+.btn{
+    margin-top: 60px;
+    margin-left: 10px;
+}
+
+tbody tr td {
+    vertical-align: middle;
+    text-align: center;
+  }
+
+thead tr th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+tbody tr td button {
+    display: inline-block; 
+    margin: 0 auto; 
+}
+  

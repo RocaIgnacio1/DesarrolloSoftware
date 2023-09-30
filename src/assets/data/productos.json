@@ -1,0 +1,345 @@
+[
+    {
+        "ID": 1,
+        "Nombre": "Elemento 1",
+        "PrecioActual": 10,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 2,
+        "Nombre": "Elemento 2",
+        "PrecioActual": 20,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi2.jpeg"
+    },
+    {
+        "ID": 3,
+        "Nombre": "Elemento 3",
+        "PrecioActual": 30,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi3.jpg"
+    },
+    {
+        "ID": 4,
+        "Nombre": "Elemento 4",
+        "PrecioActual": 40,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi4.jpg"
+    },
+    {
+        "ID": 5,
+        "Nombre": "Elemento 5",
+        "PrecioActual": 50,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi5.png"
+    },
+    {
+        "ID": 6,
+        "Nombre": "Elemento 6",
+        "PrecioActual": 60,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 7,
+        "Nombre": "Elemento 7",
+        "PrecioActual": 70,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 8,
+        "Nombre": "Elemento 8",
+        "PrecioActual": 80,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 9,
+        "Nombre": "Elemento 9",
+        "PrecioActual": 90,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 10,
+        "Nombre": "Elemento 10",
+        "PrecioActual": 100,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 11,
+        "Nombre": "Elemento 11",
+        "PrecioActual": 110,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 12,
+        "Nombre": "Elemento 12",
+        "PrecioActual": 120,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 13,
+        "Nombre": "Elemento 13",
+        "PrecioActual": 130,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 14,
+        "Nombre": "Elemento 14",
+        "PrecioActual": 140,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 15,
+        "Nombre": "Elemento 15",
+        "PrecioActual": 150,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 16,
+        "Nombre": "Elemento 16",
+        "PrecioActual": 160,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 17,
+        "Nombre": "Elemento 17",
+        "PrecioActual": 170,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 18,
+        "Nombre": "Elemento 18",
+        "PrecioActual": 180,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 19,
+        "Nombre": "Elemento 19",
+        "PrecioActual": 190,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 20,
+        "Nombre": "Elemento 20",
+        "PrecioActual": 200,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 21,
+        "Nombre": "Elemento 21",
+        "PrecioActual": 210,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 22,
+        "Nombre": "Elemento 22",
+        "PrecioActual": 220,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 23,
+        "Nombre": "Elemento 23",
+        "PrecioActual": 230,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 24,
+        "Nombre": "Elemento 24",
+        "PrecioActual": 240,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 25,
+        "Nombre": "Elemento 25",
+        "PrecioActual": 250,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 26,
+        "Nombre": "Elemento 26",
+        "PrecioActual": 260,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 27,
+        "Nombre": "Elemento 27",
+        "PrecioActual": 270,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 28,
+        "Nombre": "Elemento 28",
+        "PrecioActual": 280,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 29,
+        "Nombre": "Elemento 29",
+        "PrecioActual": 290,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 30,
+        "Nombre": "Elemento 30",
+        "PrecioActual": 300,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 31,
+        "Nombre": "Elemento 31",
+        "PrecioActual": 310,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 32,
+        "Nombre": "Elemento 32",
+        "PrecioActual": 320,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 33,
+        "Nombre": "Elemento 33",
+        "PrecioActual": 330,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 34,
+        "Nombre": "Elemento 34",
+        "PrecioActual": 340,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 35,
+        "Nombre": "Elemento 35",
+        "PrecioActual": 350,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 36,
+        "Nombre": "Elemento 36",
+        "PrecioActual": 360,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 37,
+        "Nombre": "Elemento 37",
+        "PrecioActual": 370,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 38,
+        "Nombre": "Elemento 38",
+        "PrecioActual": 380,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 39,
+        "Nombre": "Elemento 39",
+        "PrecioActual": 390,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 40,
+        "Nombre": "Elemento 40",
+        "PrecioActual": 400,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 41,
+        "Nombre": "Elemento 41",
+        "PrecioActual": 410,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 42,
+        "Nombre": "Elemento 42",
+        "PrecioActual": 420,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 43,
+        "Nombre": "Elemento 43",
+        "PrecioActual": 430,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 44,
+        "Nombre": "Elemento 44",
+        "PrecioActual": 440,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 45,
+        "Nombre": "Elemento 45",
+        "PrecioActual": 450,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 46,
+        "Nombre": "Elemento 46",
+        "PrecioActual": 460,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 47,
+        "Nombre": "Elemento 47",
+        "PrecioActual": 470,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 48,
+        "Nombre": "Elemento 48",
+        "PrecioActual": 480,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    },
+    {
+        "ID": 49,
+        "Nombre": "Elemento 49",
+        "PrecioActual": 490,
+        "Descripcion": "awdawdawdaowdnandoiawnlkdnwalkndlkawnd",
+        "Foto": "assets/data/messi1.jpg"
+    }
+]

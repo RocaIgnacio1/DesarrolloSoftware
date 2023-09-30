@@ -1,0 +1,80 @@
+
+  <body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form [formGroup]="formularioRegistro" (ngSubmit)="onSubmitRegistro()">
+                <h2>Crear cuenta</h2>  
+                <div class="form-floating mb-3">
+            
+                    <div class="form-floating">
+                        <input type="text"  class="form-control" placeholder="nombre" formControlName="nombre" id="nombreFloat"/>
+                        <label for="nombreFloat">Nombre</label>
+                    </div>
+            
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido" id="apellidoFloat"/>
+                        <label for="apellidoFloat">Apellido</label>
+                    </div>
+                    
+                    <div class="form-floating">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="email" id="emailFloat"/>
+                        <label for="emailFloat">Email</label>
+                    </div>
+            
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Nombre de usuario" formControlName="nombreUsuario" id="userNameFloat"/>
+                        <label for="userNameFloat">Nombre de usuario</label>
+                    </div>
+                    
+                    <div class="form-floating">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password" id="passwordFloat" />
+                        <label for="passwordFloat">Contraseña</label>
+                    </div>
+            
+                    <div class="form-floating">
+                        <input type="password" class="form-control" placeholder="Repita su password" formControlName="confirmPassword" id="password2Float"/>
+                        <label for="password2Float">Repita su contraseña</label>
+                    </div>
+                    <button type="submit"  routerLink="/navegador">Registrarse</button>
+                </div>
+            </form>            
+        </div>
+        <div class="form-container sign-in-container">
+            <form [formGroup]="formularioInicioSesion" (ngSubmit)="onSubmitInicioSesion()">
+                <h2>Iniciar sesión</h2>
+                <div class="form-floating mb-3">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="email" id="emailFloat"/>
+                        <label for="emailFloat">Email</label>
+                    </div>
+                    
+                    <div class="form-floating">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password" id="passwordFloat" />
+                        <label for="passwordFloat">Contraseña</label>
+                    </div>
+                    
+                    
+                   
+                    <a href="#">¿Olvidó su contraseña?</a>
+                    <p></p>
+                    <button type="submit" routerLink="/navegador">Iniciar sesión</button>
+                </div>
+            </form>
+            
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>¿Ya tiene una cuenta? Bienvenido!</h1>
+                    <p>Inicie sesion</p>
+                    <button class="ghost" id="signIn">Iniciar sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Eres nuevo? Registre sus datos</h1>
+                    <p>Ingresa tus datos y se parte de La feria</p>
+                    <button class="ghost" id="signUp">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
