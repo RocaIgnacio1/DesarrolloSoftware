@@ -7,10 +7,16 @@ import { Component } from '@angular/core';
 })
 export class CarritoComponent {
   listaItemsCarrito: any[] = [];
-
+  public precioTotal: number=0;
 
   ngOnInit(): void {
     let carritoStorage = localStorage.getItem("carrito") as string;
+    let precioTotalStorage = localStorage.getItem('precioTotal'); 
+
+    if (precioTotalStorage !== null) {
+      this.precioTotal = parseFloat(precioTotalStorage); // Convierte el valor a número
+    }
+
     let carrito = JSON.parse(carritoStorage);
     this.listaItemsCarrito = carrito;
   }
@@ -18,6 +24,7 @@ export class CarritoComponent {
   vaciarCarrito() {
     localStorage.clear();
     this.listaItemsCarrito = [];
+    this.precioTotal = 0;
   }
 
   sacarDelCarrito(item: any) {
@@ -27,10 +34,10 @@ export class CarritoComponent {
 
       // Verifica si el elemento se encontró en el carrito
       if (index !== -1) {
-        // Elimina el elemento del array usando splice
         this.listaItemsCarrito?.splice(index, 1);
 
-        // Actualiza el carrito en el almacenamiento local
+        // Actualiza
+        this.precioTotal -= item.PrecioActual;
         localStorage.setItem("carrito", JSON.stringify(this.listaItemsCarrito));
       }
     }

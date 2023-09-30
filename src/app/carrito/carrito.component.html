@@ -6,7 +6,7 @@
     </div>
 </header>
 
-<table class="table table-hover">
+<table class="table table-hover" *ngIf="precioTotal !== 0">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -32,4 +32,14 @@
         </tr>
     </tbody>
   </table>
-  <button class="btn btn-danger" (click)="vaciarCarrito()" >Vaciar carrito</button>
+
+  <span class="badge bg-warning text-dark precioActual" *ngIf="precioTotal !== 0"> 
+    <em>El precio total de su compra es de:<span class="valor">     ${{ precioTotal | number: '1.2-2'}}</span></em>
+  </span>
+  <span class="badge bg-warning text-dark precioActual" *ngIf="precioTotal === 0"> 
+    <em>Actualmente no hay productos en su carrito</em>
+  </span>
+
+  <button class="btn btn-danger" (click)="vaciarCarrito()" *ngIf="precioTotal !== 0">Vaciar carrito</button>
+  
+ 

@@ -10,12 +10,14 @@ import { ProductoService } from '../services/producto.service';
 export class FeriaComponent implements OnInit {
   producto: any;
   filterSearch: FormGroup;
+  private precioTotal : number=0;
 
   constructor(
     private productoService: ProductoService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    
   ) {
-    // Inicializa el formulario dentro del constructor
+      // Inicializa el formulario dentro del constructor
     this.filterSearch = this.formBuilder.group({
       nombre: '',
       categoria: '',
@@ -25,7 +27,7 @@ export class FeriaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Obtén productos aquí
+
     this.productoService.getProducto().subscribe({
       next: (producto: any) => {
         this.producto = producto;
@@ -40,8 +42,7 @@ export class FeriaComponent implements OnInit {
       console.log(this.filterSearch.value);
     }
   }
-
-
+  
   agregarCarrito(item: any){
     console.log(item);
     let icarrito: any = {
@@ -50,6 +51,8 @@ export class FeriaComponent implements OnInit {
       Nombre: item.Nombre,
       PrecioActual:item.PrecioActual
     }
+    this.precioTotal = this.precioTotal + icarrito.PrecioActual;
+    localStorage.setItem("precioTotal", this.precioTotal.toString());
 
     if(localStorage.getItem("carrito") === null){
       let carrito: any[]=[];
