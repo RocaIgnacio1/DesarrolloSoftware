@@ -1,5 +1,5 @@
 .container {
-    background-color:white;
+    background-color: white;
     margin: 20px;
     width: 100%;
 }
@@ -8,8 +8,7 @@ table.custom-table tr:hover {
     background-color: grey;
 }
 
-
-.btn{
+.btn {
     margin-top: 60px;
     margin-left: 10px;
 }
@@ -17,7 +16,7 @@ table.custom-table tr:hover {
 tbody tr td {
     vertical-align: middle;
     text-align: center;
-  }
+}
 
 thead tr th {
     vertical-align: middle;
@@ -25,10 +24,9 @@ thead tr th {
 }
 
 tbody tr td button {
-    display: inline-block; 
-    margin: 0 auto; 
+    display: inline-block;
+    margin: 0 auto;
 }
-  
 
 .precioActual {
     width: 66%;
@@ -37,12 +35,12 @@ tbody tr td button {
     margin-top: 20px;
     margin-bottom: 40px;
     height: 30px;
-    font-size: 18px; 
-    line-height: 15px; 
+    font-size: 18px;
+    line-height: 15px;
     text-align: center;
 }
 
-.valor{
+.valor {
     font-size: 22px;
     line-height: 12px;
 }

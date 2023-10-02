@@ -1,66 +1,96 @@
 
-  <body>
+<body>
     <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form [formGroup]="formularioRegistro" (ngSubmit)="onSubmitRegistro()">
-                <h2>Crear cuenta</h2>  
-                <div class="form-floating mb-3">
-            
+    <div class="form-container sign-up-container">
+        <form [formGroup]="formRegister" (ngSubmit)="submitFormRegister()">
+            <h2>Crear cuenta</h2>
+            <div class="row mb-3">
+                <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text"  class="form-control" placeholder="nombre" formControlName="nombre" id="nombreFloat"/>
-                        <label for="nombreFloat">Nombre</label>
+                        <input [class.is-invalid]="fregister.nombre.errors && fregister.nombre.touched" type="text" class="form-control" placeholder="Nombre" formControlName="nombre" id="nombre" />
+                        <label for="nombre">Nombre</label>
+                        <div id="validationServerMailFeedback" class="invalid-feedback">
+                            Nombre obligatorio.
+                        </div>
                     </div>
-            
-                    <div class="form-floating">
-                        <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido" id="apellidoFloat"/>
-                        <label for="apellidoFloat">Apellido</label>
-                    </div>
-                    
-                    <div class="form-floating">
-                        <input type="email" class="form-control" placeholder="Email" formControlName="email" id="emailFloat"/>
-                        <label for="emailFloat">Email</label>
-                    </div>
-            
-                    <div class="form-floating">
-                        <input type="text" class="form-control" placeholder="Nombre de usuario" formControlName="nombreUsuario" id="userNameFloat"/>
-                        <label for="userNameFloat">Nombre de usuario</label>
-                    </div>
-                    
-                    <div class="form-floating">
-                        <input type="password" class="form-control" placeholder="Password" formControlName="password" id="passwordFloat" />
-                        <label for="passwordFloat">Contraseña</label>
-                    </div>
-            
-                    <div class="form-floating">
-                        <input type="password" class="form-control" placeholder="Repita su password" formControlName="confirmPassword" id="password2Float"/>
-                        <label for="password2Float">Repita su contraseña</label>
-                    </div>
-                    <button type="submit"  routerLink="/navegador">Registrarse</button>
                 </div>
-            </form>            
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input [class.is-invalid]="fregister.apellido.errors && fregister.apellido.touched" type="text" class="form-control" placeholder="Apellido" formControlName="apellido" id="apellido" />
+                        <label for="apellido">Apellido</label>
+                        <div id="validationServerMailFeedback" class="invalid-feedback">
+                            Apellido obligatorio.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form-floating mb-3">
+                <input [class.is-invalid]="fregister.nombreUsuario.errors && fregister.nombreUsuario.touched" type="text" class="form-control" placeholder="Nombre de usuario" formControlName="nombreUsuario" id="nombreUsuario" />
+                <label for="nombreUsuario">Nombre de usuario</label>
+                <div id="validationServerMailFeedback" class="invalid-feedback">
+                    Nombre de usuario obligatorio.
+                </div>
+            </div>
+        
+            <div class="form-floating mb-3">
+                <input [class.is-invalid]="fregister.email.errors && fregister.email.touched" type="email" class="form-control" placeholder="Email" formControlName="email" id="email" />
+                <label for="email">Email</label>
+                <div id="validationServerMailFeedback" class="invalid-feedback">
+                    Mail obligatorio.
+                </div>
+            </div>
+        
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input [class.is-invalid]="fregister.password.errors && fregister.password.touched" type="password" class="form-control" placeholder="Password" formControlName="password" id="password" />
+                        <label for="password">Contraseña</label>
+                        <div id="validationServerMailFeedback" class="invalid-feedback">
+                            Contraseña obligatoria.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input [class.is-invalid]="fregister.confirmPassword.errors && fregister.confirmPassword.touched && (fregister.confirmPassword.value !== fregister.password.value)" type="password" class="form-control" placeholder="Repita su contraseña" formControlName="confirmPassword" id="confirmPassword" />
+                        <label for="confirmPassword">Repita contraseña</label>
+                        <div id="validationServerMailFeedback" class="invalid-feedback">
+                             Las contraseñas deben coincidir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <button type="submit" routerLink="">Registrarse</button>
+        </form>
+        
+        
         </div>
         <div class="form-container sign-in-container">
-            <form [formGroup]="formularioInicioSesion" (ngSubmit)="onSubmitInicioSesion()">
+            <form [formGroup]="formLogin" (ngSubmit)="submitFormLogin()">
                 <h2>Iniciar sesión</h2>
                 <div class="form-floating mb-3">
                     <div class="form-floating">
-                        <input type="email" class="form-control" placeholder="Email" formControlName="email" id="emailFloat"/>
-                        <label for="emailFloat">Email</label>
+                        <input [class.is-invalid]="flogin.email.errors && flogin.email.touched" type="email" class="form-control" placeholder="Email" formControlName="email" id="emailLogin"/>
+                        <label for="emailLogin">Email</label>
+                        <div id="validationServerMailFeedback" class="invalid-feedback">
+                            Mail obligatorio.
+                        </div>
                     </div>
-                    
+
                     <div class="form-floating">
-                        <input type="password" class="form-control" placeholder="Password" formControlName="password" id="passwordFloat" />
-                        <label for="passwordFloat">Contraseña</label>
+                        <input [class.is-invalid]="flogin.password.errors && flogin.password.touched" type="password" class="form-control" placeholder="Password" formControlName="password" id="passwordLogin"/>
+                        <label for="passwordLogin">Contraseña</label>
+                        <div id="validationServerPasswordFeedback" class="invalid-feedback">
+                            Contraseña obligatoria.
+                        </div>
                     </div>
+
                     
-                    
-                   
-                    <a href="#">¿Olvidó su contraseña?</a>
-                    <p></p>
-                    <button type="submit" routerLink="/navegador">Iniciar sesión</button>
+                    <button class="boton-inicio-sesion" type="submit" routerLink="">Iniciar sesión</button>
                 </div>
             </form>
-            
         </div>
         <div class="overlay-container">
             <div class="overlay">
@@ -77,4 +107,4 @@
             </div>
         </div>
     </div>
-  </body>
+</body>

@@ -8,40 +8,81 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginRegistroComponent {
 
-  formularioRegistro: FormGroup;
-  formularioInicioSesion: FormGroup;
+  public formLogin!: FormGroup;
+  public formRegister!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.formularioRegistro = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      nombreUsuario: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
-    });
+  constructor(private formBuilder: FormBuilder) {}
 
-    this.formularioInicioSesion = this.formBuilder.group({
+  private createFormRegister(): FormGroup {
+    return this.formBuilder.group(
+      {
+        nombre: ['', Validators.required],
+        apellido: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        nombreUsuario: ['', Validators.required],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validators: this.passwordMatchValidator, // Agrega la validación personalizada
+      }
+    );
+  }
+
+  passwordMatchValidator(formGroup: FormGroup) {
+    const passwordControl = formGroup.get('password');
+    const confirmPasswordControl = formGroup.get('confirmPassword');
+  
+    if (passwordControl && confirmPasswordControl) {
+      if (passwordControl.value !== confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ mismatch: true });
+      } else {
+        confirmPasswordControl.setErrors(null);
+      }
+    }
+  }
+  
+  
+  private createFormLogin():FormGroup{
+    return this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
-    });
+    })
   }
 
-  onSubmitRegistro() {
-    if (this.formularioRegistro.valid) {
-      // Lógica para enviar los datos del formulario de registro.
-      console.log(this.formularioRegistro.value);
+  public submitFormLogin(){
+    if(this.formLogin.invalid){
+      Object.values(this.formLogin.controls).forEach(control=>{
+        control.markAllAsTouched();
+      })
+      return;
+    }
+    
+  }
+
+  public submitFormRegister(){
+    if(this.formRegister.invalid){
+      Object.values(this.formRegister.controls).forEach(control=>{
+        control.markAllAsTouched();
+      })
+      return;
     }
   }
 
-  onSubmitInicioSesion() {
-    if (this.formularioInicioSesion.valid) {
-      // Lógica para enviar los datos del formulario de inicio de sesión.
-      console.log(this.formularioInicioSesion.value);
-    }
+  public get flogin():any{
+    return this.formLogin.controls;
+  }
+
+  public get fregister():any{
+    return this.formRegister.controls;
   }
 
   ngOnInit(): void {
+
+    this.formLogin = this.createFormLogin();
+    this.formRegister = this.createFormRegister();
+
+    // Logica para el panel movible //
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
@@ -55,5 +96,6 @@ export class LoginRegistroComponent {
         container.classList.remove("right-panel-active");
       });
     }
+    // ---------------------------- //
   }
 }

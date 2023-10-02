@@ -8,6 +8,7 @@ import { MiCuentaComponent } from './micuenta/micuenta.component';
 import { LoginRegistroComponent } from './login-registro/login-registro.component';
 import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', component: LoginRegistroComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'misproductos', component: MisProductosComponent },
   { path: 'micuenta', component: MiCuentaComponent },
   { path: 'navegador', component: NavegadorComponent },
-  { path: 'carrito', component: CarritoComponent}
+  { path: 'carrito', component: CarritoComponent},
+  { path: 'footer', component: FooterComponent}
 ];
 
 @NgModule({

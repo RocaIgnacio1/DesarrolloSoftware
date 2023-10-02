@@ -11,7 +11,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
+	height: 110vh;
 	margin: -20px 0 50px;
 }
 
@@ -58,6 +58,10 @@ button {
 	transition: transform 80ms ease-in; /*transicion lenta de 80ms*/
 }
 
+.boton-inicio-sesion{
+	margin-top: 60px;
+}
+
 button:active {
 	transform: scale(0.95);
 }
@@ -81,6 +85,8 @@ form {
 	height: 100%;
 	text-align: center;
 }
+
+
 
 .input-from{
 	width: 100%;
@@ -111,7 +117,7 @@ input {
 	overflow: hidden;
 	width: 1000px;
 	max-width: 100%;
-	min-height: 540px;
+	min-height: 570px;
 }
 
 .form-container {

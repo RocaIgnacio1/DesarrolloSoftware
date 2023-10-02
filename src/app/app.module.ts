@@ -13,6 +13,7 @@ import { MisProductosComponent } from './misproductos/misproductos.component';
 import { LoginRegistroComponent } from './login-registro/login-registro.component';
 import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     MisProductosComponent,
     LoginRegistroComponent,
     NavegadorComponent,
-    CarritoComponent
+    CarritoComponent,
+    FooterComponent
   ],
     imports: [
     BrowserModule,
