@@ -81,21 +81,33 @@ export class LoginRegistroComponent {
 
     this.formLogin = this.createFormLogin();
     this.formRegister = this.createFormRegister();
-
-    // Logica para el panel movible //
+    
+    // Logica para el panel movible. Pantalla chica //
+    
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
+    const containerSignIn = document.querySelector('.form-container.sign-in-container') as HTMLElement;
+    const containerSignUp = document.querySelector('.form-container.sign-up-container') as HTMLElement;
 
-    if (container !== null) {
-      signUpButton?.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-      });
+    if (containerSignIn !== null && containerSignUp !== null && signInButton !== null && signUpButton !== null) {
+        signUpButton?.addEventListener('click', () => {
+            console.log('hola');
+            containerSignIn.style.display = "none";
+            signUpButton.style.display = "none";
+            containerSignUp.style.display = "block";
+            signInButton.style.display = "block";
+            console.log("Hola mundo");
+        });
+        
 
-      signInButton?.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-      });
+        signInButton?.addEventListener('click', () => {
+            containerSignUp.style.display = "none";
+            signInButton.style.display = "none";
+            containerSignIn.style.display = "block";
+            signUpButton.style.display = "block";
+        });
     }
-    // ---------------------------- //
+  
+
   }
 }

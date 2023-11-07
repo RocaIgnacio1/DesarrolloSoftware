@@ -14,6 +14,7 @@ import { LoginRegistroComponent } from './login-registro/login-registro.componen
 import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FooterComponent } from './footer/footer.component';
     LoginRegistroComponent,
     NavegadorComponent,
     CarritoComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
     imports: [
     BrowserModule,

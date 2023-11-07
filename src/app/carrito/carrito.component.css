@@ -29,18 +29,68 @@ tbody tr td button {
 }
 
 .precioActual {
-    width: 66%;
+    width: 100%;
+    max-width: 300px;
     margin: 0 auto;
     display: block;
     margin-top: 20px;
     margin-bottom: 40px;
-    height: 30px;
-    font-size: 18px;
-    line-height: 15px;
     text-align: center;
-}
-
-.valor {
+    font-size: 18px;
+    line-height: 1.2; 
+  }
+  
+  .valor {
     font-size: 22px;
-    line-height: 12px;
-}
+    display: block; 
+    margin-top: 5px; 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .valor {
+      margin-top: 10px; 
+    }
+  }
+  
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* mobile */
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+  
+    /* Hacer que la tabla sea desplazable horizontalmente en pantallas pequeñas */
+    .table-container {
+      overflow-x: auto;
+    }
+  
+    
+    td, th {
+      padding: 6px;
+    }
+  }
+  
+
+
+.container-compra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .btn-comprar {
+    width: 300px; 
+    text-align: center; 
+    font-family: Arial, sans-serif;
+    font-size: 18px; 
+    padding: 10px 20px; 
+  }
+  
+  

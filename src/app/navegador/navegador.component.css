@@ -1,17 +1,37 @@
+/* pantalla grande */
+.nav {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex; 
+  justify-content: center; 
+}
 
 .nav-link {
-    color:#714707f5; 
-    transition: color 0.3s ease; 
-    background-color: white;
+  color: #714707f5;
+  transition: color 0.3s ease;
+  background-color: white;
+  margin-right: 10px; 
+}
+
+.nav-link.active {
+  color: white;
+  background-color: #714707f5;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: #714707f5;
+}
+
+/* pantalla chica (menos de 800px) */
+@media (max-width: 800px) {
+  .nav {
+    flex-direction: column; /* uno debajo del otro*/
+    align-items: center; 
   }
 
-.nav-link.active{
-    color:#714707f5; 
-    background-color: white;
-}
-  
- 
-  .nav-link:hover {
-    color: white;
-    background-color: #714707f5;
+  .nav-link {
+    margin-right: 0; 
+    margin-bottom: 5px; 
   }
+}

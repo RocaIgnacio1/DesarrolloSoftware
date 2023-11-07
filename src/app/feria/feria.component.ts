@@ -38,10 +38,24 @@ export class FeriaComponent implements OnInit {
 
   onSubmitFilter() {
     if (this.filterSearch.valid) {
-      // Lógica para enviar los datos del filtro de búsqueda
-      console.log(this.filterSearch.value);
+      const filters = this.filterSearch.value;
+  
+      this.productoService.getProducto().subscribe({
+        next: (productos: any) => {
+          // Filtra la lista de productos según los criterios del formulario
+          this.producto = productos.filter((productoItem: any) => {
+            return (
+              (!filters.nombre || productoItem.Nombre.toLowerCase().includes(filters.nombre.toLowerCase())) &&
+              (!filters.categoria || productoItem.Categoria.toLowerCase().includes(filters.categoria.toLowerCase())) &&
+              (!filters.precioMin || productoItem.PrecioActual >= filters.precioMin) &&
+              (!filters.precioMax || productoItem.PrecioActual <= filters.precioMax)
+            );
+          });
+        }
+      });
     }
   }
+  
   
   agregarCarrito(item: any){
     console.log(item);

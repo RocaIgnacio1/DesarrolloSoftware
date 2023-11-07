@@ -9,6 +9,7 @@ import { LoginRegistroComponent } from './login-registro/login-registro.componen
 import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: LoginRegistroComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'micuenta', component: MiCuentaComponent },
   { path: 'navegador', component: NavegadorComponent },
   { path: 'carrito', component: CarritoComponent},
-  { path: 'footer', component: FooterComponent}
+  { path: 'footer', component: FooterComponent},
+  { path: 'home' , component: HomeComponent}
 ];
 
 @NgModule({

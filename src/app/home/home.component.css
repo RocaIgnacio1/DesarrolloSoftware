@@ -1,0 +1,48 @@
+.container {
+    width: 100%;
+    max-width: 100%; 
+    height: 299px;
+    margin: 0;
+    padding: 0;
+    background-image: url('../../assets/cerro7colores.jpg'); 
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .contenedor-divs {
+    display: flex;
+    justify-content: space-between; /* Espacia los divs igualmente */
+    align-items: center; /* Centra verticalmente los divs */
+    margin-left: 15px;
+    padding-top: 150px;
+    height: 150px;
+  }
+  
+  .div-blanco {
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    margin-right: 10px;
+    display: flex; /* Para centrar contenido verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    border-radius: 20px;
+  }
+  
+  .div-blanco img {
+    max-width: 100%; /* Asegura que la imagen se ajuste al ancho del div */
+    max-height: 100%; /* Asegura que la imagen se ajuste al alto del div */
+  }
+
+  .imagen-con-fondo {
+    width: 300px; /* Establece el ancho de la imagen */
+    height: 200px; /* Establece la altura de la imagen */
+    background-color: rgba(0, 0, 0, 0); /* Fondo transparente (RGBA: rojo, verde, azul, alfa) */
+    background-image: url('../../assets/pica.png');  /* Ruta a tu imagen PNG */
+    background-repeat: no-repeat; /* Evita la repetición del fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+    filter: drop-shadow(5px 5px 10px #555)
+    
+  }
+  
+  

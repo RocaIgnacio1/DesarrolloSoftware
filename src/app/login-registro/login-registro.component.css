@@ -33,18 +33,6 @@ p {
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
 }
-
-span {
-	font-size: 12px;
-}
-
-a {
-	color: #333;
-	font-size: 14px;
-	text-decoration: none;
-	margin: 15px 0;
-}
-
 button {
 	border-radius: 20px;
 	border: 1px solid #714306;
@@ -59,7 +47,7 @@ button {
 }
 
 .boton-inicio-sesion{
-	margin-top: 60px;
+	margin-top: 30px;
 }
 
 button:active {
@@ -86,17 +74,6 @@ form {
 	text-align: center;
 }
 
-
-
-.input-from{
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 16px;
-	font-family: Arial, sans-serif;
-}
 .form-input::placeholder {
 	font-size: 14px; 
 }
@@ -115,9 +92,9 @@ input {
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); /*sombras*/
 	position: relative;
 	overflow: hidden;
-	width: 1000px;
+	width: 600px;
 	max-width: 100%;
-	min-height: 570px;
+	min-height: 650px;
 }
 
 .form-container {
@@ -130,122 +107,104 @@ input {
 
 .sign-in-container {
 	left: 0;
-	width: 50%;
-	z-index: 2;
-}
-
-.container.right-panel-active .sign-in-container {
-	transform: translateX(100%);
+	display: block;
+	width: 100%;
 }
 
 .sign-up-container {
+	display: none;
 	left: 0;
-	width: 50%;
-	opacity: 0;
-	z-index: 1;
-}
-
-.container.right-panel-active .sign-up-container {
-	transform: translateX(100%);
-	opacity: 1;
-	z-index: 5;
-	animation: show 0.6s;
-}
-
-@keyframes show {
-	0%, 49.99% {
-		opacity: 0;
-		z-index: 1;
-	}
-	
-	50%, 100% {
-		opacity: 1;
-		z-index: 5;
-	}
-}
-
-.overlay-container {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 50%;
-	height: 100%;
-	overflow: hidden;
-	transition: transform 0.6s ease-in-out;
-	z-index: 100;
-}
-
-.container.right-panel-active .overlay-container{
-	transform: translateX(-100%);
-}
-
-.overlay {
-	background: #5b4d00;
-	background: -webkit-linear-gradient(to right, #311813, #714707f5);
-	background: linear-gradient(to right, #2e1612, #bea552);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 0 0;
-	color: #FFFFFF;
-	position: relative;
-	left: -100%;
-	height: 100%;
-	width: 200%;
-  	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
-
-.container.right-panel-active .overlay {
-  	transform: translateX(50%);
-}
-
-.overlay-panel {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 40px;
-	text-align: center;
-	top: 0;
-	height: 100%;
-	width: 50%;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
-
-.overlay-left {
-	transform: translateX(-20%);
-}
-
-.container.right-panel-active .overlay-left {
-	transform: translateX(0);
-}
-
-.overlay-right {
-	right: 0;
-	transform: translateX(0);
-}
-
-.container.right-panel-active .overlay-right {
-	transform: translateX(20%);
-}
-
-.social-container {
-	margin: 20px 0;
-}
-
-.social-container a {
-	border: 1px solid #DDDDDD;
-	border-radius: 50%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
+	width: 100%;
 }
 
 .form-floating{
 	width: 100%;
 }
+
+.iniciarGoogle {
+	text-align: center;
+	margin-top: 20px;
+  }
+  
+  .google-container {
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos específicos para el botón de inicio de sesión de Google */
+  .g_id_signin {
+	margin-top: 10px;
+  }
+  
+  .form-container .sign-up-container {
+	display: none;
+	opacity: 1;
+  }
+
+  .form-container .sign-in-container {
+	display: block;
+	opacity: 1;
+  }
+
+
+@media screen and (max-width: 800px) {
+	.form-container {
+	  width: 100%;
+	  max-width: none;
+	}
+  
+	.overlay-container {
+	  display: none;
+	}
+
+	form .mobileIniciarSesion,
+	form .mobileRegistrarse {
+  		text-align: left;
+	}
+	
+	  .container{
+		min-height: 100%;
+	  }
+  
+	  .sign-up-container{
+		opacity: 1;
+	  }
+
+	  .sign-in-container{
+		opacity: 1;
+	  }  
+  }
+
+  .botonIniciarSesion {
+	display: block;
+	color: #265CF7;
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-transform: none;
+	font-size: 15px;
+	margin-left: 0;		
+}
+
+.botonRegistrarse {
+	display: block;
+	color: #265CF7;
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-transform: none;
+	font-size: 15px;
+	margin-left: 0;
+}
+  
+
+
