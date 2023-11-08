@@ -2,7 +2,7 @@
 
 <button [routerLink]="['/carrito']" class="fixed-cart button-cart custom-font fs-5">
     <img id="cartImage" src="/assets/carrito.png" alt="Icono de carrito de compras" />
-    <span class="">Carrito</span>
+    <span>Carrito</span>
 </button>
 
 
@@ -27,7 +27,7 @@
           <h5 class="card-title">{{ productoItem.Nombre }}</h5>
           <p class="card-text">{{ productoItem.Descripcion }}</p>
           <p class="card-text">Precio: {{ productoItem.PrecioActual }}</p>
-          <a class="btn btn-primary" (click)="agregarCarrito(productoItem)">Ver producto</a>
+          <a class="btn btn-primary" (click) = "verProducto(productoItem.ID)" >Ver producto</a>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
 
 const routes: Routes = [
   { path: '', component: LoginRegistroComponent },
@@ -20,11 +21,12 @@ const routes: Routes = [
   { path: 'navegador', component: NavegadorComponent },
   { path: 'carrito', component: CarritoComponent},
   { path: 'footer', component: FooterComponent},
-  { path: 'home' , component: HomeComponent}
+  { path: 'home' , component: HomeComponent},
+  { path: 'producto-detalle/:ID' , component: ProductoDetalleComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
