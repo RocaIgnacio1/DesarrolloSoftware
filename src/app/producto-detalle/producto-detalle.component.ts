@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-producto-detalle',
@@ -57,7 +56,7 @@ export class ProductoDetalleComponent {
       Foto: item.Foto,
       ID: item.ID,
       Nombre: item.Nombre,
-      PrecioActual:item.PrecioActual
+      PrecioActual: this.total //item.PrecioActual
     }
     this.precioTotal = this.precioTotal + icarrito.PrecioActual;
     localStorage.setItem("precioTotal", this.precioTotal.toString());

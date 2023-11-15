@@ -11,6 +11,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
+import { CargarProductoComponent } from './cargar-producto/cargar-producto.component';
 
 const routes: Routes = [
   { path: '', component: LoginRegistroComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'home' , component: HomeComponent},
-  { path: 'producto-detalle/:ID' , component: ProductoDetalleComponent}
+  { path: 'producto-detalle/:ID' , component: ProductoDetalleComponent},
+  { path: 'cargar-producto' , component: CargarProductoComponent}
 ];
 
 @NgModule({

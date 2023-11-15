@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +15,8 @@ import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-
+import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
+import { CargarProductoComponent } from './cargar-producto/cargar-producto.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,17 @@ import { HomeComponent } from './home/home.component';
     NavegadorComponent,
     CarritoComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ProductoDetalleComponent,
+    CargarProductoComponent
   ],
     imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
