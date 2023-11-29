@@ -28,10 +28,9 @@ export class FeriaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productoService.getProducto().subscribe({
+    this.productoService.getProductos({}).subscribe({
       next: (producto: any) => {
         this.producto = producto;
-        console.log(this.producto);
       }
     });
   }
@@ -41,7 +40,7 @@ export class FeriaComponent implements OnInit {
     if (this.filterSearch.valid) {
       const filters = this.filterSearch.value;
   
-      this.productoService.getProducto().subscribe({
+      this.productoService.getProductos({}).subscribe({
         next: (productos: any) => {
           // Filtra la lista de productos según los criterios del formulario
           this.producto = productos.filter((productoItem: any) => {

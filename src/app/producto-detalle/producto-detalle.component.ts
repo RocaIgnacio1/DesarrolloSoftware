@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { ProductoService } from '../services/producto.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,25 +12,28 @@ import { Router } from '@angular/router';
 
 
 export class ProductoDetalleComponent {
-  ID: number;
-  producto: any[] = [];
+  id: any;
+  producto: any = {};
   precioProducto: number = 0;
   cantidad: number = 1;
   total: number = 0;
   private precioTotal : number=0;
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
+  constructor(private productoService: ProductoService, private router: Router, private route: ActivatedRoute) {
+    this.id = {
+      ID : this.route.snapshot.params['ID']
+    }
     this.cargarDatos();
-    this.ID = this.route.snapshot.params['ID'] - 1;
   }
   
   cargarDatos(){
-    this.http.get('assets/data/productos.json').subscribe((data: any) => {
+    this.productoService.getProducto(this.id).subscribe((data: any) => {
       this.producto = data;
-      this.precioProducto = this.producto[this.ID].PrecioActual;
+      this.precioProducto = this.producto.PrecioActual;
       this.actualizarTotal();
     });
   }
+  
 
   irFeria(){
     this.router.navigate(['/feria']);
@@ -56,10 +60,11 @@ export class ProductoDetalleComponent {
       Foto: item.Foto,
       ID: item.ID,
       Nombre: item.Nombre,
+      Cantidad: this.cantidad,
       PrecioActual: this.total //item.PrecioActual
     }
-    this.precioTotal = this.precioTotal + icarrito.PrecioActual;
-    localStorage.setItem("precioTotal", this.precioTotal.toString());
+    //this.precioTotal = this.precioTotal + icarrito.PrecioActual;
+    //localStorage.setItem("precioTotal", this.precioTotal.toString());
 
     if(localStorage.getItem("carrito") === null){
       let carrito: any[]=[];

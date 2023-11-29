@@ -7,18 +7,24 @@ import { Component } from '@angular/core';
 })
 export class CarritoComponent {
   listaItemsCarrito: any[] = [];
-  public precioTotal: number=0;
+  //public precioTotal: number=0;
+  precioTotal: number=0;
+  item: any;
 
   ngOnInit(): void {
     let carritoStorage = localStorage.getItem("carrito") as string;
-    let precioTotalStorage = localStorage.getItem('precioTotal'); 
+    //let precioTotalStorage = localStorage.getItem('precioTotal'); 
+    let precioTotalStorage = this.precioTotal;
 
-    if (precioTotalStorage !== null) {
-      this.precioTotal = parseFloat(precioTotalStorage); // Convierte el valor a número
-    }
 
     let carrito = JSON.parse(carritoStorage);
     this.listaItemsCarrito = carrito;
+    if (precioTotalStorage !== null) {
+      for(this.item of this.listaItemsCarrito){
+          this.precioTotal = this.precioTotal + this.item.PrecioActual;
+      }
+      //this.precioTotal = parseFloat(precioTotalStorage); // Convierte el valor a número
+    }
   }
 
   vaciarCarrito() {

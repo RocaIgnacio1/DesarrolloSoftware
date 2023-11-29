@@ -1,20 +1,20 @@
 <div class="producto-detalle">
   <div class="imagen-y-compra">
     <div class="imagen">
-      <img [src]="producto[ID].Foto" alt="Imagen del producto">
+      <img [src]="producto.Foto" alt="Imagen del producto">
     </div>
     <div class="datos-compra">
-      <p>Precio: ${{ producto[ID].PrecioActual }}</p>
+      <p>Precio: ${{ producto.PrecioActual }}</p>
       <p>Cantidad: <input type="number" [value]="cantidad" (input)="actualizarCantidad($event)" min="1" style="border-radius: 8px; text-align: center; width: 50px;"></p>
       <p>Total: ${{ total }}</p>
       
-      <button class="agregar" (click)="agregarCarrito(producto[ID])" style="float: left;">Agregar</button>
+      <button class="agregar" (click)="agregarCarrito(producto)" style="float: left;">Agregar</button>
       <button class="cancelar" (click)="irFeria()" style="float: right;">Cancelar</button>
     </div>
   </div>
     <div class="info-producto">
-      <h2> {{ producto[ID].Nombre }} </h2>
-      <p>Descripción: {{ producto[ID].Descripcion }}</p>
+      <h2> {{ producto.Nombre }} </h2>
+      <p>Descripción: {{ producto.Descripcion }}</p>
     </div>
 </div>
   
