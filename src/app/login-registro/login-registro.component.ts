@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProductoService } from '../services/producto.service';
 
 @Component({
   selector: 'app-login-registro',
@@ -11,7 +12,8 @@ export class LoginRegistroComponent {
   public formLogin!: FormGroup;
   public formRegister!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private productoService: ProductoService, private formBuilder: FormBuilder) {
+  }
 
   private createFormRegister(): FormGroup {
     return this.formBuilder.group(
@@ -77,6 +79,16 @@ export class LoginRegistroComponent {
     return this.formRegister.controls;
   }
 
+  loginOnclick(): void {
+    console.log("Entre");
+    const jsondata = {
+      Username : '',
+      Password : ''
+    }
+    this.productoService.login(jsondata).subscribe((data: any) => {
+      
+    });
+  }
   ngOnInit(): void {
 
     this.formLogin = this.createFormLogin();
