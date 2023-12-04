@@ -29,10 +29,15 @@ export class FeriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.productoService.getProductos({}).subscribe({
-      next: (producto: any) => {
-        this.producto = producto;
-      }
-    });
+      next: (product: any) => {
+        this.producto = product;
+        this.producto.forEach((prod: any) => {
+          this.productoService.allFotos(prod.ID).subscribe((data: any) => {
+            prod.Foto = this.productoService.ApiUrl + '/' + data;
+          });
+      });
+    }
+  });
   }
 
 

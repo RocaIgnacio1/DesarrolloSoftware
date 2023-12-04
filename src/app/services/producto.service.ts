@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductoService {
 
-  private ApiUrl = 'http://localhost:3005' ;
+  public ApiUrl = 'http://localhost:3005' ;
 
   constructor(private http: HttpClient) { }
 
@@ -50,6 +50,14 @@ export class ProductoService {
   //FOTOS
   addFoto(id : number, data: any): Observable<any>{
     return this.http.post(`${this.ApiUrl}/fotos/${id}`, data);
+  }
+
+  allFotos(id : number): Observable<any>{
+    return this.http.get(`${this.ApiUrl}/allfotos/${id}`);
+  }
+
+  rutaFoto(ruta : string): Observable<any>{
+    return this.http.get(`${this.ApiUrl}/RutasArticulos/${ruta}`);
   }
 
 }
