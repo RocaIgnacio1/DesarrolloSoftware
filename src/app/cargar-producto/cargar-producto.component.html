@@ -1,3 +1,4 @@
+<app-navegador></app-navegador>
 <div class="new-product" >
     <h2>Cargar Producto</h2>
     <p><span>Campos obligatorios</span><span class="asterisk">*</span></p>
@@ -36,18 +37,7 @@
 
         <label style="grid-column: 3; grid-row: 6;">{{ label3Text }}</label>
         <input style="grid-column: 3; grid-row: 7;" type="text" formControlName="productCharacteristic3">
-
         
-        <!--<div class="asign-row-characteristic">
-          <div *ngFor="let caracteristica of filtredCharacteristics" class="caracteristica-container">
-            <div *ngIf="caracteristica.IDCategoria === selectedCategory.ID">
-              <label>{{ caracteristica.Descripcion }}</label>
-              <input type="text" formControlName="productCharacteristic">
-            </div>
-          </div>
-        </div>-->
-        
-
         <label class="product-stock"  for="product-price">Stock <span class="asterisk">*</span></label>
         <input class="product-stock-input form-control"  id="product-stock" type="text" formControlName="productStock" placeholder="Ej: 10"
           [ngClass]="{

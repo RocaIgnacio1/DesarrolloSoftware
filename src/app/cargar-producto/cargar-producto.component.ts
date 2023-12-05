@@ -139,8 +139,10 @@ export class CargarProductoComponent implements OnInit{
             formData.append('archivos', this.selectedFile as File, this.profileForm.value.productPhoto);
             console.log(formData);
             this.productoService.addFoto(this.idProducto, formData).subscribe((data3: string) => {
+              window.location.reload();
               console.log('Anda idiota');
             });
+
 
           });
       
