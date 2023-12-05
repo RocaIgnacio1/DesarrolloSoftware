@@ -87,8 +87,10 @@ export class LoginRegistroComponent {
       Password: this.formLogin.get('password')?.value
     }
     this.productoService.login(jsondata).subscribe((data: any) => {
-      this.productoService.guardarToken(data.token);
       this.productoService.guardarID(data.ID);
+      this.productoService.guardarToken(data.token);
+      console.log(this.productoService.obtenerToken());
+      console.log(this.productoService.obtenerID());
       this.router.navigate(['/feria']);
     });
   }
