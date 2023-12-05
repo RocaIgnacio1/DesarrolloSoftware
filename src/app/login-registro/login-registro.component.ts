@@ -82,11 +82,11 @@ export class LoginRegistroComponent {
   loginOnclick(): void {
     console.log("Entre");
     const jsondata = {
-      Username : '',
-      Password : ''
+      Username: this.formLogin.get('email')?.value,
+      Password: this.formLogin.get('password')?.value
     }
     this.productoService.login(jsondata).subscribe((data: any) => {
-      
+      console.log(data);
     });
   }
   ngOnInit(): void {
