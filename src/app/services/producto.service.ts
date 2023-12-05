@@ -60,4 +60,9 @@ export class ProductoService {
     return this.http.get(`${this.ApiUrl}/RutasArticulos/${ruta}`);
   }
 
+  //COMPRAS
+  addCompra(data : any): Observable<any>{
+    return this.http.post(`${this.ApiUrl}/compra`, data);
+  }
+
 }

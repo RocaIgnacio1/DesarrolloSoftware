@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductoService } from '../services/producto.service';
 
 @Component({
   selector: 'app-carrito',
@@ -10,6 +11,8 @@ export class CarritoComponent {
   //public precioTotal: number=0;
   precioTotal: number=0;
   item: any;
+  
+  constructor(private productoService: ProductoService){}
 
   ngOnInit(): void {
     let carritoStorage = localStorage.getItem("carrito") as string;
@@ -47,5 +50,22 @@ export class CarritoComponent {
         localStorage.setItem("carrito", JSON.stringify(this.listaItemsCarrito));
       }
     }
+  }
+
+  comprar() {
+    
+    this.listaItemsCarrito.forEach((prod: any) => {
+      var jsoncomprar = {
+        IDArticulo : prod.ID,
+        Cantidad : prod.Cantidad,
+        IDUsuario : 1004,
+        IDDireccion : 1014,
+        MetodoPago : 'EFECTIVO'
+      } 
+      console.log(prod);
+      this.productoService.addCompra(jsoncomprar).subscribe((data: any) => {
+        console.log("Eso Brad");
+      });
+      });
   }
 }
