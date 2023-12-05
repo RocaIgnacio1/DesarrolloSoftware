@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductoService } from '../services/producto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-registro',
@@ -12,7 +13,7 @@ export class LoginRegistroComponent {
   public formLogin!: FormGroup;
   public formRegister!: FormGroup;
 
-  constructor(private productoService: ProductoService, private formBuilder: FormBuilder) {
+  constructor(private productoService: ProductoService, private router: Router, private formBuilder: FormBuilder) {
   }
 
   private createFormRegister(): FormGroup {
@@ -86,7 +87,9 @@ export class LoginRegistroComponent {
       Password: this.formLogin.get('password')?.value
     }
     this.productoService.login(jsondata).subscribe((data: any) => {
-      console.log(data);
+      this.productoService.guardarToken(data.token);
+      this.productoService.guardarID(data.ID);
+      this.router.navigate(['/feria']);
     });
   }
   ngOnInit(): void {

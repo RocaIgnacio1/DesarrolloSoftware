@@ -58,7 +58,7 @@ export class CarritoComponent {
       var jsoncomprar = {
         IDArticulo : prod.ID,
         Cantidad : prod.Cantidad,
-        IDUsuario : 1004,
+        IDUsuario : this.productoService.obtenerID(),
         IDDireccion : 1014,
         MetodoPago : 'EFECTIVO'
       } 
