@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FeriaComponent implements OnInit {
   producto: any;
+  productoAll:any;
   filterSearch: FormGroup;
 
   constructor(
@@ -29,18 +30,23 @@ export class FeriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.productoService.getProductos({}).subscribe({
-      next: (producto: any) => {
-        this.producto = producto;
-      }
-    });
+      next: (product: any) => {
+        this.producto = product;
+        this.producto.forEach((prod: any) => {
+          this.productoService.allFotos(prod.ID).subscribe((data: any) => {
+            prod.Foto = this.productoService.ApiUrl + '/' + data;
+          });
+      });
+        this.productoAll = this.producto;
+    }
+  });
   }
 
 
   onSubmitFilter() {
     if (this.filterSearch.valid) {
       const filters = this.filterSearch.value;
-      
-          this.producto = this.producto.filter((productoItem: any) => {
+          this.producto = this.productoAll.filter((productoItem: any) => {
             return (
               (!filters.nombre || productoItem.Nombre.toLowerCase().includes(filters.nombre.toLowerCase())) &&
               (!filters.categoria || productoItem.Categoria.toLowerCase().includes(filters.categoria.toLowerCase())) &&

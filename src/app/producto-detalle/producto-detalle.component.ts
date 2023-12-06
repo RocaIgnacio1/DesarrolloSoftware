@@ -30,6 +30,9 @@ export class ProductoDetalleComponent {
     this.productoService.getProducto(this.id).subscribe((data: any) => {
       this.producto = data;
       this.precioProducto = this.producto.PrecioActual;
+      this.productoService.allFotos(this.producto.ID).subscribe((data: any) => {
+        this.producto.Foto = this.productoService.ApiUrl + '/' + data;
+      });
       this.actualizarTotal();
     });
   }

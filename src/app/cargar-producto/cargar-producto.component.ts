@@ -104,7 +104,7 @@ export class CargarProductoComponent implements OnInit{
       Cantidad : this.profileForm.value.productStock, 
       Descripcion : this.profileForm.value.productDescription, 
       IDCategoria : this.selectedCategory.ID,
-      IDUsuario : 1002
+      IDUsuario : this.productoService.obtenerID()
     }
 
     this.productoService.addProducto(jsonarticulo).subscribe((data: any) => {
