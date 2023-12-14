@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
 import { CargarProductoComponent } from './cargar-producto/cargar-producto.component';
+import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CargarProductoComponent } from './cargar-producto/cargar-producto.compo
     FooterComponent,
     HomeComponent,
     ProductoDetalleComponent,
-    CargarProductoComponent
+    CargarProductoComponent,
+    ModificarProductoComponent
   ],
     imports: [
     BrowserModule,

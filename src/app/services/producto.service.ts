@@ -55,6 +55,18 @@ export class ProductoService {
     return this.http.post(`${this.ApiUrl}/articulo`, data);
   }
 
+  updateProducto(data: any): Observable<any>{
+    console.log(data)
+    data["Token"] = this.obtenerToken();
+    return this.http.put(`${this.ApiUrl}/articulo`, data);
+  }
+
+  deleteProducto(data: any): Observable<any>{
+    data["Token"] = this.obtenerToken();
+    console.log(data)
+    return this.http.put(`${this.ApiUrl}/onearticulo`, data);
+  }
+
   //CATEGORIAS
   getCategorias(data: any): Observable<any>{
     data["Token"] = this.obtenerToken();
@@ -65,6 +77,11 @@ export class ProductoService {
   updateContenidos(data: any): Observable<any>{
     data["Token"] = this.obtenerToken();
     return this.http.put(`${this.ApiUrl}/contenido`, data);
+  }
+
+  getContenido(data: any): Observable<any>{
+    data["Token"] = this.obtenerToken();
+    return this.http.post(`${this.ApiUrl}/onecontenido`, data);
   }
 
   //CATACTERISTICAS

@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
 import { CargarProductoComponent } from './cargar-producto/cargar-producto.component';
+import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
 
 const routes: Routes = [
   { path: '', component: LoginRegistroComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent},
   { path: 'home' , component: HomeComponent},
   { path: 'producto-detalle/:ID' , component: ProductoDetalleComponent},
-  { path: 'cargar-producto' , component: CargarProductoComponent}
+  { path: 'cargar-producto' , component: CargarProductoComponent},
+  { path: 'modificar-producto/:ID' , component: ModificarProductoComponent}
 ];
 
 @NgModule({

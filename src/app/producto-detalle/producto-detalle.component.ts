@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from '../services/producto.service';
 import { Router } from '@angular/router';
