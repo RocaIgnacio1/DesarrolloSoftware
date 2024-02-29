@@ -62,9 +62,7 @@ export class CarritoComponent {
         IDDireccion : 1014,
         MetodoPago : 'EFECTIVO'
       } 
-      console.log(prod);
       this.productoService.addCompra(jsoncomprar).subscribe((data: any) => {
-        console.log("Eso Brad");
       });
       });
   }

@@ -65,7 +65,6 @@ export class CargarProductoComponent implements OnInit{
     }
     this.productoService.getCaracteristicas(jsonhelp).subscribe((data: any) => {
       this.idcaracteristicas = data;
-      console.log(data);
     });
     switch (this.selectedCategory.ID) {
       case 1000: //Alfarería
@@ -97,7 +96,6 @@ export class CargarProductoComponent implements OnInit{
   }
 
   guardarProducto() {
-    console.log('Producto a guardar:', this.profileForm.value);
     const jsonarticulo = {
       Nombre : this.profileForm.value.productName, 
       PrecioActual : this.profileForm.value.productPrice, 
@@ -116,7 +114,6 @@ export class CargarProductoComponent implements OnInit{
         IDCaracteristica : this.idcaracteristicas[0].ID, 
         ID : this.idContenidos[0].ID
       }
-      console.log(jsoncontenido1);
       this.productoService.updateContenidos(jsoncontenido1).subscribe((data1: string) => {
           var jsoncontenido2 = {
           Descripcion : this.profileForm.value.productCharacteristic2,
@@ -124,7 +121,6 @@ export class CargarProductoComponent implements OnInit{
           IDCaracteristica : this.idcaracteristicas[1].ID, 
           ID : this.idContenidos[1].ID
         }
-        console.log(jsoncontenido2);
         this.productoService.updateContenidos(jsoncontenido2).subscribe((data2: string) => {
           var jsoncontenido3 = {
             Descripcion : this.profileForm.value.productCharacteristic3,
@@ -132,15 +128,11 @@ export class CargarProductoComponent implements OnInit{
             IDCaracteristica : this.idcaracteristicas[2].ID, 
             ID : this.idContenidos[2].ID
           }
-          console.log(jsoncontenido3);
           this.productoService.updateContenidos(jsoncontenido3).subscribe((data3: string) => {
-            console.log("Hola");
             const formData: FormData = new FormData();
             formData.append('archivos', this.selectedFile as File, this.profileForm.value.productPhoto);
-            console.log(formData);
             this.productoService.addFoto(this.idProducto, formData).subscribe((data3: string) => {
               window.location.reload();
-              console.log('Anda idiota');
             });
 
 

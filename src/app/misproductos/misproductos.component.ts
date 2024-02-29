@@ -34,7 +34,6 @@ export class MisProductosComponent {
       IDUsuario: this.productoService.obtenerID()
     }
 
-    console.log(this.user)
   }
 
   ngOnInit(): void {

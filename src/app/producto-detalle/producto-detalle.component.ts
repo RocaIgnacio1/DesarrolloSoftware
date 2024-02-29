@@ -57,7 +57,6 @@ export class ProductoDetalleComponent {
   }
 
   agregarCarrito(item: any){
-    console.log(item);
     let icarrito: any = {
       Foto: item.Foto,
       ID: item.ID,

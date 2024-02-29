@@ -81,7 +81,6 @@ export class LoginRegistroComponent {
   }
 
   loginOnclick(): void {
-    console.log("Entre");
     const jsondata = {
       Username: this.formLogin.get('email')?.value,
       Password: this.formLogin.get('password')?.value
@@ -89,8 +88,6 @@ export class LoginRegistroComponent {
     this.productoService.login(jsondata).subscribe((data: any) => {
       this.productoService.guardarID(data.ID);
       this.productoService.guardarToken(data.token);
-      console.log(this.productoService.obtenerToken());
-      console.log(this.productoService.obtenerID());
       this.router.navigate(['/feria']);
     });
   }
@@ -108,12 +105,10 @@ export class LoginRegistroComponent {
 
     if (containerSignIn !== null && containerSignUp !== null && signInButton !== null && signUpButton !== null) {
         signUpButton?.addEventListener('click', () => {
-            console.log('hola');
             containerSignIn.style.display = "none";
             signUpButton.style.display = "none";
             containerSignUp.style.display = "block";
             signInButton.style.display = "block";
-            console.log("Hola mundo");
         });
         
 

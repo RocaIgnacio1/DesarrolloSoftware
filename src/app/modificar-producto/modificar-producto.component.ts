@@ -31,27 +31,6 @@ export class ModificarProductoComponent {
       ID : this.route.snapshot.params['ID']
     }
 
-//    this.productoService.getProducto(this.id).subscribe((data: any) => {
-//      this.producto = data;
-
-//      const jsoncontenido = {
-//        IDArticulo : this.producto.ID
-//      }
-//
-//      console.log(jsoncontenido)
-//      this.productoService.getContenido(jsoncontenido).subscribe((data: any) => {
-//        this.contenido = data;
-//        console.log(this.contenido[0].Descripcion)
-//      });
-  
-//      this.productoService.getCategorias({}).subscribe((data: any) => {
-//        this.categorias = data;
-//        this.selectedCategory.Nombre = this.categorias.find(categoria => categoria.ID.toString() === this.producto.IDCategoria.toString()).Descripcion
-//        this.onCategoryChange();
-//      });
-//    });
-
-
 
     this.label1Text = ''
     this.label2Text = ''
