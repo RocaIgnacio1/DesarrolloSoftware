@@ -15,10 +15,10 @@ import { CargarProductoComponent } from './cargar-producto/cargar-producto.compo
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
 
 const routes: Routes = [
-  { path: '', component: LoginRegistroComponent },
+  { path: '', component: LoginRegistroComponent, data: {mostrarHeader: false, mostrarFooter: false} },
   { path: 'feria', component: FeriaComponent},
-  { path: 'publicar-producto', component: PublicarComponent },
-  { path: 'misproductos', component: MisProductosComponent },
+  { path: 'publicar-producto', component: PublicarComponent},
+  { path: 'misproductos', component: MisProductosComponent},
   { path: 'micuenta', component: MiCuentaComponent },
   { path: 'navegador', component: NavegadorComponent },
   { path: 'carrito', component: CarritoComponent},
