@@ -15,7 +15,21 @@ export class CarritoComponent {
   constructor(private productoService: ProductoService){}
 
   ngOnInit(): void {
-    let carritoStorage = localStorage.getItem("carrito") as string;
+    // Obtengo el JSON de la cookie
+    let carritoCookie = document.cookie.replace(/(?:(?:^|.*;\s*)carrito\s*=\s*([^;]*).*$)|^.*$/, "$1");
+
+    if (carritoCookie) {
+        // Si la cookie "carrito" existe, no necesitas JSON.parse ya que los datos están en formato JSON
+        this.listaItemsCarrito = JSON.parse(carritoCookie);
+
+        // Calcula el precio total
+        this.precioTotal = 0;
+        for (let item of this.listaItemsCarrito) {
+            this.precioTotal += item.PrecioActual;
+        }
+    }
+  }
+    /*let carritoStorage = localStorage.getItem("carrito") as string;
     //let precioTotalStorage = localStorage.getItem('precioTotal'); 
     let precioTotalStorage = this.precioTotal;
 
@@ -28,26 +42,24 @@ export class CarritoComponent {
       }
       //this.precioTotal = parseFloat(precioTotalStorage); // Convierte el valor a número
     }
-  }
+  }*/
 
   vaciarCarrito() {
-    localStorage.clear();
+    //localStorage.clear();
+    document.cookie = "carrito=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     this.listaItemsCarrito = [];
     this.precioTotal = 0;
   }
 
   sacarDelCarrito(item: any) {
     if (item) {
-      // Encuentra el índice del elemento en el array
       const index = this.listaItemsCarrito?.indexOf(item);
 
-      // Verifica si el elemento se encontró en el carrito
       if (index !== -1) {
         this.listaItemsCarrito?.splice(index, 1);
 
-        // Actualiza
         this.precioTotal -= item.PrecioActual;
-        localStorage.setItem("carrito", JSON.stringify(this.listaItemsCarrito));
+        document.cookie = "carrito=" + JSON.stringify(this.listaItemsCarrito) + "; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/";
       }
     }
   }

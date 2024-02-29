@@ -25,6 +25,7 @@ export class ProductoDetalleComponent {
     this.cargarDatos();
   }
   
+  
   cargarDatos(){
     this.productoService.getProducto(this.id).subscribe((data: any) => {
       this.producto = data;
@@ -62,12 +63,27 @@ export class ProductoDetalleComponent {
       ID: item.ID,
       Nombre: item.Nombre,
       Cantidad: this.cantidad,
-      PrecioActual: this.total //item.PrecioActual
-    }
-    //this.precioTotal = this.precioTotal + icarrito.PrecioActual;
-    //localStorage.setItem("precioTotal", this.precioTotal.toString());
+      PrecioActual: this.total
+  };
 
-    if(localStorage.getItem("carrito") === null){
+  // Obtengo la cadena JSON de la cookie
+  let carritoCookie = document.cookie.replace(/(?:(?:^|.*;\s*)carrito\s*=\s*([^;]*).*$)|^.*$/, "$1");
+
+  if (!carritoCookie) {
+      // Si la cookie "carrito" no existe, crea una nueva
+      document.cookie = "carrito=" + JSON.stringify([icarrito]) + "; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/";
+  } else {
+      // Si la cookie "carrito" ya existe, agrega el nuevo item al arreglo existente
+      let carrito = JSON.parse(carritoCookie);
+      carrito.push(icarrito);
+
+      // Actualiza la cookie con el nuevo arreglo
+      document.cookie = "carrito=" + JSON.stringify(carrito) + "; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/";
+  }
+
+  this.router.navigate(['/carrito']);
+
+    /*if(localStorage.getItem("carrito") === null){
       let carrito: any[]=[];
       carrito.push(icarrito);
       localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -77,7 +93,7 @@ export class ProductoDetalleComponent {
       carrito.push(icarrito);
       localStorage.setItem("carrito", JSON.stringify(carrito));
     }
-    this.router.navigate(['/carrito']);
+    this.router.navigate(['/carrito']);*/
     
   }
 
