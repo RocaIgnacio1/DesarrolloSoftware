@@ -37,6 +37,17 @@ export class ProductoService {
   eliminarID(): void {
     localStorage.removeItem(this.globalID.toString());
   }
+  // USUARIO
+  getUsuario(data: any): Observable<any>{
+    data["Token"] = this.obtenerToken();
+    return this.http.post(`${this.ApiUrl}/oneusuario`, data);
+  }
+
+  updateUsuario(data: any): Observable<any>{
+    data["Token"] = this.obtenerToken();
+    console.log(data);
+    return this.http.put(`${this.ApiUrl}/usuario`, data);
+  }
   // PRODUCTO
   getProductos(data: any): Observable<any>{
     data["Token"] = this.obtenerToken();
