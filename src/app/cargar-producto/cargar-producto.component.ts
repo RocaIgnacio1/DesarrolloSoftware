@@ -170,13 +170,19 @@ export class CargarProductoComponent implements OnInit {
                   this.productoService
                     .addFoto(this.idProducto, formData)
                     .subscribe((data3: string) => {
-                      window.location.reload();
+                      //window.location.reload();
                     });
                 });
             });
         });
     });
-    this.router.navigate(['/misproductos']);
+    this.reloadCurrentRouteWithDelay();
+  }
+
+  async reloadCurrentRouteWithDelay() {
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
+    await this.router.navigate(['/misproductos']);
   }
 
   isButtonDisabled() {
