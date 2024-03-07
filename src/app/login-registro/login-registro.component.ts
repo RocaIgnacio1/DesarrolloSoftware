@@ -6,15 +6,17 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-registro',
   templateUrl: './login-registro.component.html',
-  styleUrls: ['./login-registro.component.css']
+  styleUrls: ['./login-registro.component.css'],
 })
 export class LoginRegistroComponent {
-
   public formLogin!: FormGroup;
   public formRegister!: FormGroup;
 
-  constructor(private productoService: ProductoService, private router: Router, private formBuilder: FormBuilder) {
-  }
+  constructor(
+    private productoService: ProductoService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
   private createFormRegister(): FormGroup {
     return this.formBuilder.group(
@@ -35,7 +37,7 @@ export class LoginRegistroComponent {
   passwordMatchValidator(formGroup: FormGroup) {
     const passwordControl = formGroup.get('password');
     const confirmPasswordControl = formGroup.get('confirmPassword');
-  
+
     if (passwordControl && confirmPasswordControl) {
       if (passwordControl.value !== confirmPasswordControl.value) {
         confirmPasswordControl.setErrors({ mismatch: true });
@@ -44,47 +46,45 @@ export class LoginRegistroComponent {
       }
     }
   }
-  
-  
-  private createFormLogin():FormGroup{
+
+  private createFormLogin(): FormGroup {
     return this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    })
+      password: ['', Validators.required],
+    });
   }
 
-  public submitFormLogin(){
-    if(this.formLogin.invalid){
-      Object.values(this.formLogin.controls).forEach(control=>{
+  public submitFormLogin() {
+    if (this.formLogin.invalid) {
+      Object.values(this.formLogin.controls).forEach((control) => {
         control.markAllAsTouched();
-      })
-      return;
-    }
-    
-  }
-
-  public submitFormRegister(){
-    if(this.formRegister.invalid){
-      Object.values(this.formRegister.controls).forEach(control=>{
-        control.markAllAsTouched();
-      })
+      });
       return;
     }
   }
 
-  public get flogin():any{
+  public submitFormRegister() {
+    if (this.formRegister.invalid) {
+      Object.values(this.formRegister.controls).forEach((control) => {
+        control.markAllAsTouched();
+      });
+      return;
+    }
+  }
+
+  public get flogin(): any {
     return this.formLogin.controls;
   }
 
-  public get fregister():any{
+  public get fregister(): any {
     return this.formRegister.controls;
   }
 
   loginOnclick(): void {
     const jsondata = {
       Username: this.formLogin.get('email')?.value,
-      Password: this.formLogin.get('password')?.value
-    }
+      Password: this.formLogin.get('password')?.value,
+    };
     this.productoService.login(jsondata).subscribe((data: any) => {
       this.productoService.guardarID(data.ID);
       this.productoService.guardarToken(data.token);
@@ -92,34 +92,39 @@ export class LoginRegistroComponent {
     });
   }
   ngOnInit(): void {
-
     this.formLogin = this.createFormLogin();
     this.formRegister = this.createFormRegister();
-    
+
     // Logica para el panel movible. Pantalla chica //
-    
+
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
-    const containerSignIn = document.querySelector('.form-container.sign-in-container') as HTMLElement;
-    const containerSignUp = document.querySelector('.form-container.sign-up-container') as HTMLElement;
+    const containerSignIn = document.querySelector(
+      '.form-container.sign-in-container'
+    ) as HTMLElement;
+    const containerSignUp = document.querySelector(
+      '.form-container.sign-up-container'
+    ) as HTMLElement;
 
-    if (containerSignIn !== null && containerSignUp !== null && signInButton !== null && signUpButton !== null) {
-        signUpButton?.addEventListener('click', () => {
-            containerSignIn.style.display = "none";
-            signUpButton.style.display = "none";
-            containerSignUp.style.display = "block";
-            signInButton.style.display = "block";
-        });
-        
+    if (
+      containerSignIn !== null &&
+      containerSignUp !== null &&
+      signInButton !== null &&
+      signUpButton !== null
+    ) {
+      signUpButton?.addEventListener('click', () => {
+        containerSignIn.style.display = 'none';
+        signUpButton.style.display = 'none';
+        containerSignUp.style.display = 'block';
+        signInButton.style.display = 'block';
+      });
 
-        signInButton?.addEventListener('click', () => {
-            containerSignUp.style.display = "none";
-            signInButton.style.display = "none";
-            containerSignIn.style.display = "block";
-            signUpButton.style.display = "block";
-        });
+      signInButton?.addEventListener('click', () => {
+        containerSignUp.style.display = 'none';
+        signInButton.style.display = 'none';
+        containerSignIn.style.display = 'block';
+        signUpButton.style.display = 'block';
+      });
     }
-  
-
   }
 }

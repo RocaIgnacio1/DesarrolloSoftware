@@ -1,4 +1,3 @@
-
 @media (max-width: 768px) {
   .producto-detalle {
     display: grid;
@@ -9,8 +8,8 @@
     padding-right: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-    
-  .imagen-y-compra{
+
+  .imagen-y-compra {
     grid-row: 1;
     display: grid;
     position: sticky;
@@ -26,8 +25,8 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
-  .datos-compra{
+
+  .datos-compra {
     grid-row: 2;
     /*border: 1px solid #ddd;*/
     border-radius: 8px;
@@ -40,7 +39,7 @@
     width: 100%;
     height: 100%;
   }
-  
+
   .info-producto {
     grid-row: 2;
     border: 1px solid #ddd;
@@ -51,25 +50,25 @@
     background-color: white;
     top: 100px;
   }
-  
+
   h2 {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 40px;
     margin-bottom: 10px;
   }
-  
+
   p {
     line-height: 1.5;
     font-size: 16px;
     margin-bottom: 8px;
   }
-  
+
   input[type="number"] {
     padding: 6px;
     font-size: 14px;
     width: 60px;
   }
-  
+
   button {
     background-color: #ff6b6b;
     color: white;
@@ -80,18 +79,20 @@
     font-size: 18px;
     transition: background-color 0.3s ease;
   }
-  
-  .agregar{
+
+  .agregar {
     background-color: #6EE270;
   }
-  .agregar:hover{
+
+  .agregar:hover {
     background-color: #5EC25F;
   }
+
   .cancelar {
     background-color: #ff6b6b;
   }
 
-  .cancelar:hover{
+  .cancelar:hover {
     background-color: #ff4f4f;
   }
 }
@@ -109,90 +110,91 @@
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-    
-    .imagen-y-compra{
-      margin-top: 20px;
-      grid-column: 1;
-      position: sticky;
-      top: 90px;
-    }
 
-    .imagen {
-      width: 100%;
-      height: 100%;
-      margin-right: 20px;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .datos-compra{
-      overflow: hidden;
-      /*border: 1px solid #ddd;*/
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      background-color: white;
-    }
+  .imagen-y-compra {
+    margin-top: 20px;
+    grid-column: 1;
+    position: sticky;
+    top: 90px;
+  }
 
-    .imagen img {
-      width: 100%;
-      height: 100%;
-    }
-    
-    .info-producto {
-      grid-column: 2/ span 3;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 5px;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      background-color: white;
-      top: 100px;
-    }
-    
-    h2 {
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-    
-    p {
-      line-height: 1.5;
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-    
-    input[type="number"] {
-      padding: 6px;
-      font-size: 14px;
-      width: 60px;
-    }
-    
-    button {
-      background-color: #ff6b6b;
-      color: white;
-      border: none;
-      width: 45%;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
+  .imagen {
+    width: 100%;
+    height: 100%;
+    margin-right: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-    .agregar{
-      background-color: #6EE270;
-    }
-    .agregar:hover{
-      background-color: #5EC25F;
-    }
-    .cancelar {
-      background-color: #ff6b6b;
-    }
-  
-    .cancelar:hover{
-      background-color: #ff4f4f;
-    }
-}    
-  
+  .datos-compra {
+    overflow: hidden;
+    /*border: 1px solid #ddd;*/
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+
+  .imagen img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .info-producto {
+    grid-column: 2/ span 3;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    top: 100px;
+  }
+
+  h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  input[type="number"] {
+    padding: 6px;
+    font-size: 14px;
+    width: 60px;
+  }
+
+  button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    width: 45%;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+
+  .agregar {
+    background-color: #6EE270;
+  }
+
+  .agregar:hover {
+    background-color: #5EC25F;
+  }
+
+  .cancelar {
+    background-color: #ff6b6b;
+  }
+
+  .cancelar:hover {
+    background-color: #ff4f4f;
+  }
+}

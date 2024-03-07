@@ -8,7 +8,7 @@ describe('CarritoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CarritoComponent]
+      declarations: [CarritoComponent],
     });
     fixture = TestBed.createComponent(CarritoComponent);
     component = fixture.componentInstance;

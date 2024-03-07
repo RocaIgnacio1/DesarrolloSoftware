@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { FeriaComponent } from './feria/feria.component';
-import { PublicarComponent } from './publicar/publicar.component';
 import { MisProductosComponent } from './misproductos/misproductos.component';
 import { MiCuentaComponent } from './micuenta/micuenta.component';
 import { LoginRegistroComponent } from './login-registro/login-registro.component';
@@ -15,24 +14,27 @@ import { CargarProductoComponent } from './cargar-producto/cargar-producto.compo
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
 
 const routes: Routes = [
-  { path: '', component: LoginRegistroComponent, data: {mostrarHeader: false, mostrarFooter: false} },
-  { path: 'feria', component: FeriaComponent},
-  { path: 'publicar-producto', component: PublicarComponent},
-  { path: 'misproductos', component: MisProductosComponent},
+  {
+    path: '',
+    component: LoginRegistroComponent,
+    data: { mostrarHeader: false, mostrarFooter: false },
+  },
+  { path: 'feria', component: FeriaComponent },
+  { path: 'misproductos', component: MisProductosComponent },
   { path: 'micuenta', component: MiCuentaComponent },
   { path: 'navegador', component: NavegadorComponent },
-  { path: 'carrito', component: CarritoComponent},
-  { path: 'footer', component: FooterComponent},
-  { path: 'home' , component: HomeComponent},
-  { path: 'producto-detalle/:ID' , component: ProductoDetalleComponent},
-  { path: 'cargar-producto' , component: CargarProductoComponent},
-  { path: 'modificar-producto/:ID' , component: ModificarProductoComponent}
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'producto-detalle/:ID', component: ProductoDetalleComponent },
+  { path: 'cargar-producto', component: CargarProductoComponent },
+  { path: 'modificar-producto/:ID', component: ModificarProductoComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
-  
+export class AppRoutingModule {}

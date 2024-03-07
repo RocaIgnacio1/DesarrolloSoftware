@@ -1,96 +1,95 @@
 .container {
-    background-color: white;
-    margin: 20px;
-    width: 100%;
+  background-color: white;
+  margin: 20px;
+  width: 100%;
 }
 
 table.custom-table tr:hover {
-    background-color: grey;
+  background-color: grey;
 }
 
 .btn {
-    margin-top: 60px;
-    margin-left: 10px;
+  margin-top: 60px;
+  margin-left: 10px;
 }
 
 tbody tr td {
-    vertical-align: middle;
-    text-align: center;
+  vertical-align: middle;
+  text-align: center;
 }
 
 thead tr th {
-    vertical-align: middle;
-    text-align: center;
+  vertical-align: middle;
+  text-align: center;
 }
 
 tbody tr td button {
-    display: inline-block;
-    margin: 0 auto;
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .precioActual {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    text-align: center;
-    font-size: 18px;
-    line-height: 1.2; 
-  }
-  
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.valor {
+  font-size: 22px;
+  display: block;
+  margin-top: 5px;
+}
+
+
+@media (max-width: 768px) {
   .valor {
-    font-size: 22px;
-    display: block; 
-    margin-top: 5px; 
+    margin-top: 10px;
   }
-  
-  
-  @media (max-width: 768px) {
-    .valor {
-      margin-top: 10px; 
-    }
-  }
-  
+}
+
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
   }
-  
-  /* mobile */
-  @media (max-width: 768px) {
-    table {
-      font-size: 14px;
-    }
-  
-    /* Hacer que la tabla sea desplazable horizontalmente en pantallas pequeñas */
-    .table-container {
-      overflow-x: auto;
-    }
-  
-    
-    td, th {
-      padding: 6px;
-    }
+
+  /* Hacer que la tabla sea desplazable horizontalmente en pantallas pequeñas */
+  .table-container {
+    overflow-x: auto;
   }
-  
+
+
+  td,
+  th {
+    padding: 6px;
+  }
+}
+
 
 
 .container-compra {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  .btn-comprar {
-    width: 300px; 
-    text-align: center; 
-    font-family: Arial, sans-serif;
-    font-size: 18px; 
-    padding: 10px 20px; 
-  }
-  
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.btn-comprar {
+  width: 300px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  padding: 10px 20px;
+}
