@@ -141,6 +141,35 @@
     grid-row: 6;
   }
 
+  .label-description-1{
+    grid-column: 1; 
+    grid-row: 6;
+  }
+
+  .label-description-2{
+    grid-column: 2; 
+    grid-row: 6;
+  }
+  
+  .label-description-3{
+    grid-column: 3; 
+    grid-row: 6;
+  }
+
+  .input-description-1{
+    grid-column: 1; 
+    grid-row: 7;
+  }
+
+  .input-description-2{
+    grid-column: 2; 
+    grid-row: 7;
+  }
+
+  .input-description-3{
+    grid-column: 3; 
+    grid-row: 7;
+  }
 
   label {
     display: block;
