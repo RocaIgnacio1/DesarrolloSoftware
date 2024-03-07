@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FeriaComponent } from './feria/feria.component';
 import { MiCuentaComponent } from './micuenta/micuenta.component';
-import { PublicarComponent } from './publicar/publicar.component';
 import { MisProductosComponent } from './misproductos/misproductos.component';
 import { LoginRegistroComponent } from './login-registro/login-registro.component';
 import { NavegadorComponent } from './navegador/navegador.component';
@@ -24,7 +23,6 @@ import { ModificarProductoComponent } from './modificar-producto/modificar-produ
     AppComponent,
     FeriaComponent,
     MiCuentaComponent,
-    PublicarComponent,
     MisProductosComponent,
     LoginRegistroComponent,
     NavegadorComponent,
@@ -33,17 +31,17 @@ import { ModificarProductoComponent } from './modificar-producto/modificar-produ
     HomeComponent,
     ProductoDetalleComponent,
     CargarProductoComponent,
-    ModificarProductoComponent
+    ModificarProductoComponent,
   ],
-    imports: [
+  imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

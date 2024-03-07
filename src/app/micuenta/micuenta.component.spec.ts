@@ -8,7 +8,7 @@ describe('MiCuentaComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MiCuentaComponent]
+      declarations: [MiCuentaComponent],
     });
     fixture = TestBed.createComponent(MiCuentaComponent);
     component = fixture.componentInstance;

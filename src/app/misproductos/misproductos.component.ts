@@ -7,10 +7,9 @@ import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-misproductos',
   templateUrl: './misproductos.component.html',
-  styleUrls: ['./misproductos.component.css']
+  styleUrls: ['./misproductos.component.css'],
 })
 export class MisProductosComponent {
-
   user: any;
   producto: any;
   filterSearch: FormGroup;
@@ -20,57 +19,65 @@ export class MisProductosComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private cdr: ChangeDetectorRef
-    
   ) {
-      // Inicializa el formulario dentro del constructor
+    // Inicializa el formulario dentro del constructor
     this.filterSearch = this.formBuilder.group({
       nombre: '',
       categoria: '',
       precioMin: null,
-      precioMax: null
+      precioMax: null,
     });
 
     this.user = {
-      IDUsuario: this.productoService.obtenerID()
-    }
-
+      IDUsuario: this.productoService.obtenerID(),
+    };
   }
 
   ngOnInit(): void {
     this.productoService.getProductos(this.user).subscribe({
       next: (producto: any) => {
         this.producto = producto;
-      }
+      },
     });
   }
-
 
   onSubmitFilter() {
     if (this.filterSearch.valid) {
       const filters = this.filterSearch.value;
-      
-          this.producto = this.producto.filter((productoItem: any) => {
-            return (
-              (!filters.nombre || productoItem.Nombre.toLowerCase().includes(filters.nombre.toLowerCase())) &&
-              (!filters.categoria || productoItem.Categoria.toLowerCase().includes(filters.categoria.toLowerCase())) &&
-              (!filters.precioMin || productoItem.PrecioActual >= filters.precioMin) &&
-              (!filters.precioMax || productoItem.PrecioActual <= filters.precioMax)
-            );
-          });
+
+      this.producto = this.producto.filter((productoItem: any) => {
+        return (
+          (!filters.nombre ||
+            productoItem.Nombre.toLowerCase().includes(
+              filters.nombre.toLowerCase()
+            )) &&
+          (!filters.categoria ||
+            productoItem.Categoria.toLowerCase().includes(
+              filters.categoria.toLowerCase()
+            )) &&
+          (!filters.precioMin ||
+            productoItem.PrecioActual >= filters.precioMin) &&
+          (!filters.precioMax || productoItem.PrecioActual <= filters.precioMax)
+        );
+      });
     }
   }
 
-  modificarProducto(id: number){
+  modificarProducto(id: number) {
     this.router.navigate(['/modificar-producto', id]);
   }
 
-  eliminarProducto(id: number){
-    if(window.confirm('¿Estás seguro de que quieres eliminar este producto?')){
+  eliminarProducto(id: number) {
+    if (
+      window.confirm('¿Estás seguro de que quieres eliminar este producto?')
+    ) {
       const jsonid = {
-        ID: id
-      }
+        ID: id,
+      };
       this.productoService.deleteProducto(jsonid).subscribe({});
-      setTimeout(() => {location.reload();}, 500);
+      setTimeout(() => {
+        location.reload();
+      }, 500);
     }
   }
 }

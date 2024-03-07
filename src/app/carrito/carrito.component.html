@@ -1,7 +1,7 @@
-<header id="page-header" class="container">        
-    <div>
-        <h1>Carrito</h1>
-    </div>
+<header id="page-header" class="container">
+  <div>
+    <h1>Carrito</h1>
+  </div>
 </header>
 
 <div class="table-responsive">
@@ -19,32 +19,48 @@
     <tbody>
       <tr *ngFor="let item of listaItemsCarrito; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{item.Nombre}}</td>
+        <td>{{ item.Nombre }}</td>
         <td>
-          <img [src]="item.Foto" alt="Imagen del producto" width="100" height="100">
+          <img
+            [src]="item.Foto"
+            alt="Imagen del producto"
+            width="100"
+            height="100"
+          />
         </td>
-        <td>{{item.Cantidad}}</td>
-        <td>${{item.PrecioActual}}</td>
+        <td>{{ item.Cantidad }}</td>
+        <td>${{ item.PrecioActual }}</td>
         <td class="boton-eliminar">
-          <button class="btn btn-danger" (click)="sacarDelCarrito(item)">Eliminar del carrito</button>
+          <button class="btn btn-danger" (click)="sacarDelCarrito(item)">
+            Eliminar del carrito
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-  
-<button class="btn btn-danger" (click)="vaciarCarrito()" *ngIf="precioTotal !== 0">Vaciar carrito</button>
+<button
+  class="btn btn-danger"
+  (click)="vaciarCarrito()"
+  *ngIf="precioTotal !== 0"
+>
+  Vaciar carrito
+</button>
 
-  <span class="badge bg-warning text-dark precioActual" *ngIf="precioTotal !== 0"> 
-    <em>El precio total de su compra es de:<span class="valor ">     ${{ precioTotal | number: '1.2-2'}}</span></em>
-  </span>
-  <span class="badge bg-warning text-dark precioActual" *ngIf="precioTotal === 0"> 
-    <em>Actualmente no hay productos en su carrito</em>
-  </span>
+<span class="badge bg-warning text-dark precioActual" *ngIf="precioTotal !== 0">
+  <em
+    >El precio total de su compra es de:<span class="valor">
+      ${{ precioTotal | number : "1.2-2" }}</span
+    ></em
+  >
+</span>
+<span class="badge bg-warning text-dark precioActual" *ngIf="precioTotal === 0">
+  <em>Actualmente no hay productos en su carrito</em>
+</span>
 
-  
-  
-  <div class="container-compra">
-    <button type="button" class="btn btn-success btn-comprar" (click)="comprar()">Comprar</button>
-  </div>
+<div class="container-compra">
+  <button type="button" class="btn btn-success btn-comprar" (click)="comprar()">
+    Comprar
+  </button>
+</div>

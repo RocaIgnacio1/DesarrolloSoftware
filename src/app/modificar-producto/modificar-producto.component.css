@@ -1,202 +1,202 @@
 @media (max-width: 768px) {
-    .new-product {
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      min-height: 100vh;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-top: 2%;
-    }
-    
-  
-    input[type="text"],
-    input[type="number"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    
-    textarea {
-      resize: vertical;
-    }
-    
-    button {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  
-    button[disabled]{
-      pointer-events: none;
-      cursor: not-allowed;
-      background-color: gray;
-      color: black;
-    }
-    
-    button:hover {
-      background-color: #0056b3;
-    }
-  
-    .preview {
-      margin-top: 10px;
-    }
-    
-    .preview img {
-      max-width: 100%;
-      max-height: 200px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .asterisk {
-      color: red;
-    }
+  .new-product {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 100vh;
   }
 
-  @media (min-width: 769px) {
-    .new-product {
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      min-height: 100vh;
-    }
-    
-    .principal-info{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 10px;
-    }
-    
-    .product-name{
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .product-name-input{
-      grid-column: 1 / span 2;
-      grid-row: 2;
-    }
-
-    .product-price{
-      grid-column: 3;
-      grid-row: 1;
-    }
-
-    .asign-row-name{
-      display: flex;
-      flex-direction: column;
-      grid-row: 3;
-    }
-
-    .product-price-input{
-      grid-column: 3;
-      grid-row: 2;
-    }
-
-    .asign-row-price{
-      display: flex;
-      flex-direction: column;
-      grid-column: 3;
-      grid-row: 3;
-    }
-
-    .product-category{
-      grid-column: 1;
-      grid-row: 4;
-    }
-
-    .product-category-input{
-      grid-column: 1 / span 2;
-      grid-row: 5;
-    }
-
-    .product-stock{
-      grid-column: 3;
-      grid-row: 4;
-    }
-
-    .product-stock-input{
-      grid-column: 3;
-      grid-row: 5;
-    }
-
-    .asign-row-stock{
-      display: flex;
-      flex-direction: column;
-      grid-column: 3;
-      grid-row: 6;
-    }
-
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-top: 2%;
-    }
-    
-
-    input[type="text"],
-    input[type="number"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    
-    textarea {
-      resize: vertical;
-    }
-    
-    button {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button[disabled]{
-      pointer-events: none;
-      cursor: not-allowed;
-      background-color: gray;
-      color: black;
-    }
-    
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .preview {
-      margin-top: 10px;
-    }
-    
-    .preview img {
-      max-width: 100%;
-      max-height: 200px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .asterisk {
-      color: red;
-    }
+  label {
+    display: block;
+    font-weight: bold;
+    margin-top: 2%;
   }
+
+
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: gray;
+    color: black;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .preview {
+    margin-top: 10px;
+  }
+
+  .preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .asterisk {
+    color: red;
+  }
+}
+
+@media (min-width: 769px) {
+  .new-product {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 100vh;
+  }
+
+  .principal-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .product-name {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .product-name-input {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+
+  .product-price {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .asign-row-name {
+    display: flex;
+    flex-direction: column;
+    grid-row: 3;
+  }
+
+  .product-price-input {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .asign-row-price {
+    display: flex;
+    flex-direction: column;
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  .product-category {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .product-category-input {
+    grid-column: 1 / span 2;
+    grid-row: 5;
+  }
+
+  .product-stock {
+    grid-column: 3;
+    grid-row: 4;
+  }
+
+  .product-stock-input {
+    grid-column: 3;
+    grid-row: 5;
+  }
+
+  .asign-row-stock {
+    display: flex;
+    flex-direction: column;
+    grid-column: 3;
+    grid-row: 6;
+  }
+
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-top: 2%;
+  }
+
+
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: gray;
+    color: black;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .preview {
+    margin-top: 10px;
+  }
+
+  .preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .asterisk {
+    color: red;
+  }
+}

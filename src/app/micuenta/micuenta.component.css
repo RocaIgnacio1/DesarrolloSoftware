@@ -1,20 +1,19 @@
-
-
 button {
-    border: #007bff solid 1px;
+	border: #007bff solid 1px;
 	border-radius: 20px;
 	background-color: #007bff;
-    color: #fff;
+	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	transition: transform 80ms ease-in; /*transicion lenta de 80ms*/
+	transition: transform 80ms ease-in;
+	/*transicion lenta de 80ms*/
 }
 
-.contenedor-boton{
-	display: flex; 
-	justify-content: center; 
+.contenedor-boton {
+	display: flex;
+	justify-content: center;
 	margin-top: 2%;
 }

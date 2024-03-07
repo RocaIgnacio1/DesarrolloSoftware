@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-modificar-producto',
   templateUrl: './modificar-producto.component.html',
-  styleUrls: ['./modificar-producto.component.css']
+  styleUrls: ['./modificar-producto.component.css'],
 })
 export class ModificarProductoComponent {
   id: any;
@@ -17,26 +17,26 @@ export class ModificarProductoComponent {
   contenido: any = {};
   categorias: any[] = [];
   caracteristicas: any[] = [];
-  idcaracteristicas : { ID : number, Descripcion : string}[] = [];
+  idcaracteristicas: { ID: number; Descripcion: string }[] = [];
   label1Text: string = '';
   label2Text: string = '';
   label3Text: string = '';
-  selectedCategory: { ID: number, Nombre: string } = { ID: 0, Nombre: '' };
+  selectedCategory: { ID: number; Nombre: string } = { ID: 0, Nombre: '' };
   selectedCharacteristic: string = '';
   filtredCharacteristics: any[] = [];
 
-  constructor(private productoService: ProductoService, private router: Router, private route: ActivatedRoute) {
-    
+  constructor(
+    private productoService: ProductoService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.id = {
-      ID : this.route.snapshot.params['ID']
-    }
+      ID: this.route.snapshot.params['ID'],
+    };
 
-
-    this.label1Text = ''
-    this.label2Text = ''
-    this.label3Text = ' '
-
-
+    this.label1Text = '';
+    this.label2Text = '';
+    this.label3Text = ' ';
   }
 
   ngOnInit(): void {
@@ -45,73 +45,84 @@ export class ModificarProductoComponent {
 
   async fetchData() {
     try {
-      const productoData: any = await this.productoService.getProducto(this.id).toPromise();
+      const productoData: any = await this.productoService
+        .getProducto(this.id)
+        .toPromise();
       this.producto = productoData;
-  
+
       const jsoncontenido = {
-        IDArticulo: this.producto.ID
+        IDArticulo: this.producto.ID,
       };
-  
-      const contenidoData: any = await this.productoService.getContenido(jsoncontenido).toPromise();
+
+      const contenidoData: any = await this.productoService
+        .getContenido(jsoncontenido)
+        .toPromise();
       this.contenido = contenidoData;
 
       this.descripcion1 = this.contenido[0].Descripcion;
       this.descripcion2 = this.contenido[1].Descripcion;
       this.descripcion3 = this.contenido[2].Descripcion;
 
-
-      const categoriasData: any = await this.productoService.getCategorias({}).toPromise();
+      const categoriasData: any = await this.productoService
+        .getCategorias({})
+        .toPromise();
       this.categorias = categoriasData;
-  
-      this.selectedCategory.Nombre = this.categorias.find(categoria => categoria.ID.toString() === this.producto.IDCategoria.toString()).Descripcion;
-  
+
+      this.selectedCategory.Nombre = this.categorias.find(
+        (categoria) =>
+          categoria.ID.toString() === this.producto.IDCategoria.toString()
+      ).Descripcion;
+
       this.onCategoryChange();
     } catch (error) {
       console.error('Error al obtener los datos:', error);
     }
   }
-  
 
   onCategoryChange() {
     //this.categorias = this.categorias.filter(item => item.Descripcion !== this.selectedCategory.Nombre);
-    this.selectedCategory.ID = this.categorias.find(categoria => categoria.Descripcion === this.selectedCategory.Nombre)?.ID;
-    this.filtredCharacteristics = this.caracteristicas.filter(caracteristica => caracteristica.IDCategoria === this.selectedCategory.ID);
+    this.selectedCategory.ID = this.categorias.find(
+      (categoria) => categoria.Descripcion === this.selectedCategory.Nombre
+    )?.ID;
+    this.filtredCharacteristics = this.caracteristicas.filter(
+      (caracteristica) =>
+        caracteristica.IDCategoria === this.selectedCategory.ID
+    );
     const jsonhelp = {
-      IDCategoria : this.selectedCategory.ID
-    }
+      IDCategoria: this.selectedCategory.ID,
+    };
 
     this.productoService.getCaracteristicas(jsonhelp).subscribe((data: any) => {
       this.idcaracteristicas = data;
     });
     switch (this.selectedCategory.ID) {
       case 1000: //Alfarería
-          this.label1Text = 'Medidas'
-          this.label2Text = 'Color'
-          this.label3Text = 'Técnica'
-          break;
+        this.label1Text = 'Medidas';
+        this.label2Text = 'Color';
+        this.label3Text = 'Técnica';
+        break;
       case 1001: //Tejido a mano
-          this.label1Text = 'Medidas'
-          this.label2Text = 'Material'
-          this.label3Text = 'Diseño'
-          break;
+        this.label1Text = 'Medidas';
+        this.label2Text = 'Material';
+        this.label3Text = 'Diseño';
+        break;
       case 1002: //Joyería
-          this.label1Text = 'Material'
-          this.label2Text = 'Diseño'
-          this.label3Text = 'Técnica'
-          break;
+        this.label1Text = 'Material';
+        this.label2Text = 'Diseño';
+        this.label3Text = 'Técnica';
+        break;
       case 1003: //Instrumentos y juguetes
-          this.label1Text = 'Material'
-          this.label2Text = 'Diseño'
-          this.label3Text = 'Edad recomendada'
-          break;
+        this.label1Text = 'Material';
+        this.label2Text = 'Diseño';
+        this.label3Text = 'Edad recomendada';
+        break;
       case 1004: //Talabartería
-          this.label1Text = 'Medidas'
-          this.label2Text = 'Detalles'
-          this.label3Text = 'Diseño'
-          break;
+        this.label1Text = 'Medidas';
+        this.label2Text = 'Detalles';
+        this.label3Text = 'Diseño';
+        break;
     }
   }
-
 
   guardarCambios() {
     const datosModificados = {
@@ -122,40 +133,42 @@ export class ModificarProductoComponent {
       PrecioEnvio: 100,
       IDCategoria: this.selectedCategory.ID,
       ID: this.producto.ID,
-      IDUsuario: this.producto.IDUsuario
+      IDUsuario: this.producto.IDUsuario,
     };
 
-    this.productoService.updateProducto(datosModificados).subscribe(
-      {
-        
-      });
+    this.productoService.updateProducto(datosModificados).subscribe({});
 
-      const jsoncontenido1 = {
-        Descripcion : this.descripcion1,
-        IDArticulo : this.producto.ID,
-        IDCaracteristica : this.contenido[0].IDCaracteristica,
-        ID : this.contenido[0].ID
-      }
-      
-      this.productoService.updateContenidos(jsoncontenido1).subscribe((data1: string) => {
+    const jsoncontenido1 = {
+      Descripcion: this.descripcion1,
+      IDArticulo: this.producto.ID,
+      IDCaracteristica: this.contenido[0].IDCaracteristica,
+      ID: this.contenido[0].ID,
+    };
+
+    this.productoService
+      .updateContenidos(jsoncontenido1)
+      .subscribe((data1: string) => {
         var jsoncontenido2 = {
-          Descripcion : this.descripcion2,
-          IDArticulo : this.producto.ID,
-          IDCaracteristica : this.contenido[1].IDCaracteristica,
-          ID : this.contenido[1].ID
-        }
-        
-        this.productoService.updateContenidos(jsoncontenido2).subscribe((data2: string) => {
-          var jsoncontenido3 = {
-            Descripcion : this.descripcion3,
-            IDArticulo : this.producto.ID,
-            IDCaracteristica : this.contenido[2].IDCaracteristica,
-            ID : this.contenido[2].ID
-          }
+          Descripcion: this.descripcion2,
+          IDArticulo: this.producto.ID,
+          IDCaracteristica: this.contenido[1].IDCaracteristica,
+          ID: this.contenido[1].ID,
+        };
 
-          this.productoService.updateContenidos(jsoncontenido3).subscribe((data3: string) => {});
-      
-        });
+        this.productoService
+          .updateContenidos(jsoncontenido2)
+          .subscribe((data2: string) => {
+            var jsoncontenido3 = {
+              Descripcion: this.descripcion3,
+              IDArticulo: this.producto.ID,
+              IDCaracteristica: this.contenido[2].IDCaracteristica,
+              ID: this.contenido[2].ID,
+            };
+
+            this.productoService
+              .updateContenidos(jsoncontenido3)
+              .subscribe((data3: string) => {});
+          });
       });
   }
 }

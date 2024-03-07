@@ -1,17 +1,17 @@
 .filter-container {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   margin-top: 10px;
 }
 
-.filter-container input{
+.filter-container input {
   margin: 5px;
   width: 15%;
 }
 
-.filter-container button{
+.filter-container button {
   background-color: #F5AB57;
   border: transparent;
   width: 15%;
@@ -23,86 +23,96 @@
   }
 
   .filter-container input {
-    width: 70%; /* En dispositivos pequeños, los inputs ocupan todo el ancho disponible */
+    width: 70%;
+    /* En dispositivos pequeños, los inputs ocupan todo el ancho disponible */
   }
 
   .filter-container button {
-    width: 70%; /* El botón también ocupa todo el ancho en dispositivos pequeños */
+    width: 70%;
+    /* El botón también ocupa todo el ancho en dispositivos pequeños */
   }
 }
 
 .card-container {
-    margin: 10px;
-    height: 80%; /* Establece una altura del 100% para todas las tarjetas */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Para recortar el texto si es demasiado largo */
+  margin: 10px;
+  height: 80%;
+  /* Establece una altura del 100% para todas las tarjetas */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Para recortar el texto si es demasiado largo */
 }
 
 .card {
-    width: 90%;
-    height: 100%;
+  width: 90%;
+  height: 100%;
 }
 
 .card-img-container {
-    flex: 1; 
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-img-top {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta la imagen para llenar el espacio sin distorsión */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ajusta la imagen para llenar el espacio sin distorsión */
 }
 
 .card-body {
-    flex: 0;
+  flex: 0;
 }
 
 .btn {
-    width: 100%;
-    white-space: nowrap; /* Evita el salto de línea del texto del botón */
-    overflow: hidden; /* Recorta el texto si es demasiado largo */
-    text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto se recorta */
+  width: 100%;
+  white-space: nowrap;
+  /* Evita el salto de línea del texto del botón */
+  overflow: hidden;
+  /* Recorta el texto si es demasiado largo */
+  text-overflow: ellipsis;
+  /* Muestra puntos suspensivos si el texto se recorta */
 }
 
 
+.fixed-cart {
+  position: fixed;
+  top: 0px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border: transparent;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.fixed-cart span {
+  display: block;
+}
+
+@media (max-width: 880px) {
   .fixed-cart {
-    position: fixed;
-    top: 0px; 
-    right: 20px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    background-color: #fff; 
-    padding: 10px;
-    border: transparent;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    top: 70px;
+    right: 2px;
+    background-color: #5AF764;
   }
 
-  .fixed-cart span{
-    display: block;
+  .fixed-cart span {
+    display: none;
   }
+}
 
-  @media (max-width: 880px) {
-    .fixed-cart {
-      top: 70px; 
-      right: 2px;
-      background-color: #5AF764; 
-    }
-    .fixed-cart span{
-      display: none;
-    }
-  }
-  
-  .button-cart{
-    color:#714707f5; 
-    
-  }
-  .fixed-cart:hover{
-    background-color: #714707f5;
-    color: white;
-  }
+.button-cart {
+  color: #714707f5;
+
+}
+
+.fixed-cart:hover {
+  background-color: #714707f5;
+  color: white;
+}

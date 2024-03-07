@@ -4,7 +4,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'probando';
@@ -24,7 +24,15 @@ export class AppComponent {
     const data = this.activatedRoute.snapshot.firstChild?.data;
 
     // Actualiza la visibilidad del header y el footer
-    this.mostrarHeader = data ? data['mostrarHeader'] !== undefined ? data['mostrarHeader'] : true : true;
-    this.mostrarFooter = data ? data['mostrarFooter'] !== undefined ? data['mostrarFooter'] : true : true;
+    this.mostrarHeader = data
+      ? data['mostrarHeader'] !== undefined
+        ? data['mostrarHeader']
+        : true
+      : true;
+    this.mostrarFooter = data
+      ? data['mostrarFooter'] !== undefined
+        ? data['mostrarFooter']
+        : true
+      : true;
   }
 }

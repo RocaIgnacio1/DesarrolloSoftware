@@ -6,10 +6,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-micuenta',
   templateUrl: './micuenta.component.html',
-  styleUrls: ['./micuenta.component.css']
+  styleUrls: ['./micuenta.component.css'],
 })
 export class MiCuentaComponent {
-
   id: any;
   usuario: any = {};
 
@@ -21,25 +20,25 @@ export class MiCuentaComponent {
   passwordActualIncorrecta: boolean = false;
   passwordNuevaNoValida: boolean = false;
   exito: boolean = false;
- 
-  
 
-  constructor(private productoService: ProductoService, private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private productoService: ProductoService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.id = {
-      ID : 1018
-    }
+      ID: 1018,
+    };
     this.cargarDatos();
-    
-    
   }
 
   cargarDatos() {
     this.productoService.getUsuario(this.id).subscribe((usuarioData) => {
-      this.usuario = usuarioData
+      this.usuario = usuarioData;
     });
   }
 
-  guardarCambiosPublicos () {
+  guardarCambiosPublicos() {
     const datosModificados = {
       ID: this.usuario.ID,
       Nombre: this.usuario.Nombre,
@@ -47,19 +46,13 @@ export class MiCuentaComponent {
       Mail: this.usuario.Mail,
       Username: this.usuario.Username,
       Password: this.usuario.Password,
-      TipoUsuario: 'USER'
+      TipoUsuario: 'USER',
     };
 
-    this.productoService.updateUsuario(datosModificados).subscribe(
-      {
-        
-      });
-  
+    this.productoService.updateUsuario(datosModificados).subscribe({});
   }
 
-  
- 
-  guardarCambiosPrivados () {
+  guardarCambiosPrivados() {
     this.passwordNoCoinciden = false;
     this.passwordNuevaNoValida = false;
     this.passwordActualIncorrecta = false;
@@ -73,8 +66,8 @@ export class MiCuentaComponent {
 
     const datosActuales = {
       Username: this.usuario.Username,
-      Password: this.passwordActual
-    }
+      Password: this.passwordActual,
+    };
     this.productoService.login(datosActuales).subscribe(
       (data: any) => {
         const datosModificados = {
@@ -84,13 +77,11 @@ export class MiCuentaComponent {
           Mail: this.usuario.Mail,
           Username: this.usuario.Username,
           Password: this.passwordNueva,
-          TipoUsuario: 'USER'
+          TipoUsuario: 'USER',
         };
-  
+
         this.productoService.updateUsuario(datosModificados).subscribe(
-          (respuesta: any) => {
-            
-          },
+          (respuesta: any) => {},
           (error: any) => {
             if (error.status === 200) {
               // Si el error es 200, consideramos que la contraseña se actualizó correctamente
@@ -102,7 +93,10 @@ export class MiCuentaComponent {
               }, 1500);
             } else {
               // Si el error no es 200, mostramos un mensaje de error
-              console.error('Error en la actualización de la contraseña:', error);
+              console.error(
+                'Error en la actualización de la contraseña:',
+                error
+              );
               this.passwordNuevaNoValida = true;
             }
           }
@@ -113,6 +107,5 @@ export class MiCuentaComponent {
         this.passwordActualIncorrecta = true;
       }
     );
-  
   }
 }

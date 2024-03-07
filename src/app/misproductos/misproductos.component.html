@@ -1,29 +1,70 @@
+<div>
+  <form
+    [formGroup]="filterSearch"
+    (ngSubmit)="onSubmitFilter()"
+    class="filter-container"
+  >
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Nombre"
+      formControlName="nombre"
+    />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Categoría"
+      formControlName="categoria"
+    />
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Precio mínimo"
+      formControlName="precioMin"
+    />
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Precio máximo"
+      formControlName="precioMax"
+    />
+    <button class="btn btn-primary" type="submit">Aplicar filtros</button>
+  </form>
+</div>
 
-<div >
-    <form [formGroup]="filterSearch" (ngSubmit)="onSubmitFilter()" class="filter-container" >
-      <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" />
-      <input type="text" class="form-control" placeholder="Categoría" formControlName="categoria" />
-      <input type="number" class="form-control" placeholder="Precio mínimo" formControlName="precioMin" />
-      <input type="number" class="form-control" placeholder="Precio máximo" formControlName="precioMax" />
-      <button class="btn btn-primary" type="submit">Aplicar filtros</button>
-    </form>
-  </div>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let productoItem of producto">
-        <div class="card card-container">
-          <div class="card-img-container">
-            <img [src]="productoItem.Foto" class="card-img-top" alt="Imagen del producto" id="card-image">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{ productoItem.Nombre }}</h5>
-            <p class="card-text">{{ productoItem.Descripcion }}</p>
-            <p class="card-text">Precio: {{ productoItem.PrecioActual }}</p>
-            <a class="btn btn-primary" (click) = "modificarProducto(productoItem.ID)" >Modificar datos</a>
-            <button style = "margin-top: 2px;" class="btn btn-danger btn-sm float-end" (click)="eliminarProducto(productoItem.ID)">Eliminar</button>
-          </div>
+<div class="container">
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+      *ngFor="let productoItem of producto"
+    >
+      <div class="card card-container">
+        <div class="card-img-container">
+          <img
+            [src]="productoItem.Foto"
+            class="card-img-top"
+            alt="Imagen del producto"
+            id="card-image"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ productoItem.Nombre }}</h5>
+          <p class="card-text">{{ productoItem.Descripcion }}</p>
+          <p class="card-text">Precio: {{ productoItem.PrecioActual }}</p>
+          <a
+            class="btn btn-primary"
+            (click)="modificarProducto(productoItem.ID)"
+            >Modificar datos</a
+          >
+          <button
+            style="margin-top: 2px"
+            class="btn btn-danger btn-sm float-end"
+            (click)="eliminarProducto(productoItem.ID)"
+          >
+            Eliminar
+          </button>
         </div>
       </div>
     </div>
   </div>
+</div>
