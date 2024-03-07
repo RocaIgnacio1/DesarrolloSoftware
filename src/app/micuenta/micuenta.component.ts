@@ -27,7 +27,7 @@ export class MiCuentaComponent {
     private route: ActivatedRoute
   ) {
     this.id = {
-      ID: 1018,
+      ID: this.productoService.obtenerID(),
     };
     this.cargarDatos();
   }
