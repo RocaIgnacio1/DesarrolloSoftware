@@ -12,7 +12,7 @@
           [value]="cantidad"
           (input)="actualizarCantidad($event)"
           min="1"
-          style="border-radius: 8px; text-align: center; width: 50px"
+          class="input-cantidad"
         />
       </p>
       <p>Total: ${{ total }}</p>
@@ -20,11 +20,10 @@
       <button
         class="agregar"
         (click)="agregarCarrito(producto)"
-        style="float: left"
       >
         Agregar
       </button>
-      <button class="cancelar" (click)="irFeria()" style="float: right">
+      <button class="cancelar" (click)="irFeria()">
         Cancelar
       </button>
     </div>

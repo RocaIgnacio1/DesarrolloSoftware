@@ -37,6 +37,7 @@ export class ModificarProductoComponent {
     this.label1Text = '';
     this.label2Text = '';
     this.label3Text = ' ';
+
   }
 
   ngOnInit(): void {
@@ -170,5 +171,13 @@ export class ModificarProductoComponent {
               .subscribe((data3: string) => {});
           });
       });
+      this.reloadCurrentRouteWithDelay()
+     
+  }
+
+  async reloadCurrentRouteWithDelay() {
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
+    await this.router.navigate(['/misproductos']);
   }
 }
