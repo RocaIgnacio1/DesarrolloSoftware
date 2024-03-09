@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FeriaComponent } from './feria/feria.component';
 import { MiCuentaComponent } from './micuenta/micuenta.component';
 import { MisProductosComponent } from './misproductos/misproductos.component';
-import { LoginRegistroComponent } from './login-registro/login-registro.component';
 import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
 import { CargarProductoComponent } from './cargar-producto/cargar-producto.component';
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,6 @@ import { ModificarProductoComponent } from './modificar-producto/modificar-produ
     FeriaComponent,
     MiCuentaComponent,
     MisProductosComponent,
-    LoginRegistroComponent,
     NavegadorComponent,
     CarritoComponent,
     FooterComponent,
@@ -32,6 +32,8 @@ import { ModificarProductoComponent } from './modificar-producto/modificar-produ
     ProductoDetalleComponent,
     CargarProductoComponent,
     ModificarProductoComponent,
+    LoginComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,

@@ -75,3 +75,7 @@
   text-overflow: ellipsis;
   /* Muestra puntos suspensivos si el texto se recorta */
 }
+
+.button-delete{
+  margin-top: 2px;
+}

@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ProductoService } from '../services/producto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cargar-producto',
@@ -34,6 +35,7 @@ export class CargarProductoComponent implements OnInit {
   constructor(
     private productoService: ProductoService,
     private fb: FormBuilder,
+    private router: Router,
     private http: HttpClient
   ) {
     this.profileForm = this.fb.group({
@@ -168,12 +170,19 @@ export class CargarProductoComponent implements OnInit {
                   this.productoService
                     .addFoto(this.idProducto, formData)
                     .subscribe((data3: string) => {
-                      window.location.reload();
+                      //window.location.reload();
                     });
                 });
             });
         });
     });
+    this.reloadCurrentRouteWithDelay();
+  }
+
+  async reloadCurrentRouteWithDelay() {
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
+    await this.router.navigate(['/misproductos']);
   }
 
   isButtonDisabled() {

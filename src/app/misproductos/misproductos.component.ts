@@ -37,6 +37,11 @@ export class MisProductosComponent {
     this.productoService.getProductos(this.user).subscribe({
       next: (producto: any) => {
         this.producto = producto;
+        this.producto.forEach((prod: any) => {
+          this.productoService.allFotos(prod.ID).subscribe((data: any) => {
+            prod.Foto = this.productoService.ApiUrl + '/' + data;
+          });
+        });
       },
     });
   }

@@ -184,6 +184,7 @@
 
   .agregar {
     background-color: #6EE270;
+    float: left
   }
 
   .agregar:hover {
@@ -192,9 +193,16 @@
 
   .cancelar {
     background-color: #ff6b6b;
+    float: right
   }
 
   .cancelar:hover {
     background-color: #ff4f4f;
+  }
+
+  .input-cantidad{
+    border-radius: 8px; 
+    text-align: center; 
+    width: 50px
   }
 }

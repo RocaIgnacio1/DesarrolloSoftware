@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { FeriaComponent } from './feria/feria.component';
 import { MisProductosComponent } from './misproductos/misproductos.component';
 import { MiCuentaComponent } from './micuenta/micuenta.component';
-import { LoginRegistroComponent } from './login-registro/login-registro.component';
 import { NavegadorComponent } from './navegador/navegador.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FooterComponent } from './footer/footer.component';
@@ -12,11 +11,23 @@ import { HomeComponent } from './home/home.component';
 import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
 import { CargarProductoComponent } from './cargar-producto/cargar-producto.component';
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
+import { RegistroComponent } from './registro/registro.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginRegistroComponent,
+    component: LoginComponent,
+    data: { mostrarHeader: false, mostrarFooter: false },
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { mostrarHeader: false, mostrarFooter: false },
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
     data: { mostrarHeader: false, mostrarFooter: false },
   },
   { path: 'feria', component: FeriaComponent },

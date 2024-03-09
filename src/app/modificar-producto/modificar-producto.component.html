@@ -31,23 +31,23 @@
       </option>
     </select>
 
-    <label style="grid-column: 1; grid-row: 6">{{ label1Text }}</label>
+    <label class="label-description-1">{{ label1Text }}</label>
     <input
-      style="grid-column: 1; grid-row: 7"
+      class="input-description-1"
       type="text"
       [(ngModel)]="descripcion1"
     />
 
-    <label style="grid-column: 2; grid-row: 6">{{ label2Text }}</label>
+    <label class="label-description-2">{{ label1Text }}</label>
     <input
-      style="grid-column: 2; grid-row: 7"
+      class="input-description-2"
       type="text"
       [(ngModel)]="descripcion2"
     />
 
-    <label style="grid-column: 3; grid-row: 6">{{ label3Text }}</label>
+    <label class="label-description-3">{{ label1Text }}</label>
     <input
-      style="grid-column: 3; grid-row: 7"
+      class="input-description-3"
       type="text"
       [(ngModel)]="descripcion3"
     />
@@ -64,9 +64,9 @@
   <label style="margin-bottom: 1%" for="product-description"
     >Descripción <span class="asterisk">*</span></label
   >
-  <textarea style="height: 70px" [(ngModel)]="producto.Descripcion"></textarea>
+  <textarea class="input-description" [(ngModel)]="producto.Descripcion"></textarea>
 
-  <div style="display: flex; justify-content: center; margin-top: 2%">
+  <div class="button-save-changes">
     <button type="submit" (click)="guardarCambios()">Guardar cambios</button>
   </div>
 </div>
