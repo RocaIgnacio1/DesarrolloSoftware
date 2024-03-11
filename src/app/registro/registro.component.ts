@@ -9,18 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent {
+  // Creacion del formulario de tipo FormGroup
   public formRegister!: FormGroup;
 
   constructor(
     private productoService: ProductoService,
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
 
-  cambiarVista() {
-    this.router.navigate(['/login']);
+  // Inicializamos el formulario en la variable formRegister
+  ngOnInit(): void {
+    this.formRegister = this.createFormRegister();
   }
 
+  // Definimos la estructura que tomara el formulario
   private createFormRegister(): FormGroup {
     return this.formBuilder.group(
       {
@@ -32,11 +35,12 @@ export class RegistroComponent {
         confirmPassword: ['', Validators.required],
       },
       {
-        validators: this.passwordMatchValidator,
+        validators: [this.passwordMatchValidator, this.passwordFormValidator],
       }
     );
   }
 
+  // Funcion para validar que las contraseñas coincidan
   passwordMatchValidator(formGroup: FormGroup) {
     const passwordControl = formGroup.get('password');
     const confirmPasswordControl = formGroup.get('confirmPassword');
@@ -50,6 +54,40 @@ export class RegistroComponent {
     }
   }
 
+  // Funcion para validar que la contraseña cumpla con los requisitos. Se valida aca y en el server
+  passwordFormValidator(formGroup: FormGroup) {
+    const passwordControl = formGroup.get('password');
+
+    if (!passwordControl) {
+      return false;
+    }
+
+    const password = passwordControl.value;
+    console.log(password);
+    const regexMayuscula = /[A-Z]/;
+    const regexNumero = /[0-9]/;
+    const regexCaracterEspecial = /[!@#$%^&*()\-_=+[\]{}|;:'",.<>/?\\]/;
+
+    if (password.length < 8) {
+      return false;
+    }
+
+    if (!regexMayuscula.test(password)) {
+      return false;
+    }
+
+    if (!regexNumero.test(password)) {
+      return false;
+    }
+
+    if (!regexCaracterEspecial.test(password)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  // Funcion para enviar el formulario al servicio y validarlo
   public submitFormRegister() {
     if (this.formRegister.invalid) {
       Object.values(this.formRegister.controls).forEach((control) => {
@@ -57,13 +95,42 @@ export class RegistroComponent {
       });
       return;
     }
+
+    const jsondata = {
+      Nombre: this.formRegister.get('nombre')?.value,
+      Apellido: this.formRegister.get('apellido')?.value,
+      Mail: this.formRegister.get('email')?.value,
+      Username: this.formRegister.get('nombreUsuario')?.value,
+      Password: this.formRegister.get('password')?.value,
+      TipoUsuario: 'USER',
+    };
+
+    this.productoService.registro(jsondata).subscribe(
+      (data: any) => {
+
+        const jsonlogin = {
+          Username: this.formRegister.get('nombreUsuario')?.value,
+          Password: this.formRegister.get('password')?.value
+        };
+        console.log(jsonlogin)
+        this.productoService.login(jsonlogin).subscribe(
+          (data: any) => {
+            this.productoService.guardarID(data.ID);
+            this.productoService.guardarToken(data.token);
+            this.router.navigate(['/feria']);
+          }
+        );
+      },
+      (error) => console.log(error)
+    );
   }
 
   public get fregister(): any {
     return this.formRegister.controls;
   }
 
-  ngOnInit(): void {
-    this.formRegister = this.createFormRegister();
+  // Funcion para cambiar de registro -> login
+  cambiarVista() {
+    this.router.navigate(['/login']);
   }
 }

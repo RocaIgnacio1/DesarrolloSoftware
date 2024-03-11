@@ -10,9 +10,7 @@
             [(ngModel)]="usuario.Nombre"
           />
           <label for="nombre">Nombre</label>
-          <div id="validationServerMailFeedback" class="invalid-feedback">
-            Nombre obligatorio.
-          </div>
+          <div class="invalid-feedback">Nombre obligatorio.</div>
         </div>
       </div>
       <div class="mb-3">
@@ -23,9 +21,7 @@
             [(ngModel)]="usuario.Apellido"
           />
           <label for="apellido">Apellido</label>
-          <div id="validationServerMailFeedback" class="invalid-feedback">
-            Apellido obligatorio.
-          </div>
+          <div class="invalid-feedback">Apellido obligatorio.</div>
         </div>
       </div>
     </div>
@@ -34,9 +30,7 @@
         <div class="form-floating">
           <input type="text" class="form-control" [(ngModel)]="usuario.Mail" />
           <label for="email">Email</label>
-          <div id="validationServerMailFeedback" class="invalid-feedback">
-            Mail obligatorio.
-          </div>
+          <div class="invalid-feedback">Mail obligatorio.</div>
         </div>
       </div>
       <div class="mb-3">
@@ -47,9 +41,7 @@
             [(ngModel)]="usuario.Username"
           />
           <label for="nombreUsuario">Nombre de usuario</label>
-          <div id="validationServerMailFeedback" class="invalid-feedback">
-            Nombre de usuario obligatorio.
-          </div>
+          <div class="invalid-feedback">Nombre de usuario obligatorio.</div>
         </div>
       </div>
     </div>
@@ -77,7 +69,6 @@
             class="form-control"
             required
             [(ngModel)]="passwordActual"
-            id="passwordActual"
           />
           <label for="passwordActual">Contraseña actual</label>
           <!-- Error 1: Contraseña actual incorrecta -->
@@ -95,7 +86,6 @@
             class="form-control"
             required
             [(ngModel)]="passwordNueva"
-            id="passwordNueva"
           />
           <label for="passwordNueva">Nueva contraseña</label>
           <!-- Error 2: Contraseña nueva no valida -->
@@ -113,7 +103,6 @@
             class="form-control"
             required
             [(ngModel)]="passwordRepetir"
-            id="passwordRepetir"
           />
           <label for="passwordRepetir">Repita nueva contraseña</label>
           <!-- Error 3: Las contraseñas no coinciden -->
