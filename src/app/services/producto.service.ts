@@ -38,81 +38,109 @@ export class ProductoService {
   }
   // USUARIO
   getUsuario(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/oneusuario`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/oneusuario`, data, {
+      headers: headers,
+    });
   }
 
   updateUsuario(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.put(`${this.ApiUrl}/usuario`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.put(`${this.ApiUrl}/usuario`, data, { headers: headers });
   }
   // PRODUCTO
   getProductos(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/allarticulos`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/allarticulos`, data, {
+      headers: headers,
+    });
   }
 
   getProducto(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/onearticulo`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/onearticulo`, data, {
+      headers: headers,
+    });
   }
 
   addProducto(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/articulo`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/articulo`, data, {
+      headers: headers,
+    });
   }
 
   updateProducto(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.put(`${this.ApiUrl}/articulo`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.put(`${this.ApiUrl}/articulo`, data, { headers: headers });
   }
 
   deleteProducto(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.put(`${this.ApiUrl}/onearticulo`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.put(`${this.ApiUrl}/onearticulo`, data, {
+      headers: headers,
+    });
   }
 
   //CATEGORIAS
   getCategorias(data: any): Observable<any> {
-      const headers = this.tokenHeaders()
-      return this.http.post(`${this.ApiUrl}/allcategorias`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/allcategorias`, data, {
+      headers: headers,
+    });
   }
 
   //CONTENIDOS
   updateContenidos(data: any): Observable<any> {
-      const headers = this.tokenHeaders()
-      return this.http.put(`${this.ApiUrl}/contenido`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.put(`${this.ApiUrl}/contenido`, data, {
+      headers: headers,
+    });
   }
 
   getContenido(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/onecontenido`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/onecontenido`, data, {
+      headers: headers,
+    });
   }
 
-  //CATACTERISTICAS
+  //CARACTERISTICAS
   getCaracteristicas(data: any): Observable<any> {
-      const headers = this.tokenHeaders()
-      return this.http.post(`${this.ApiUrl}/allcaracteristicas`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/allcaracteristicas`, data, {
+      headers: headers,
+    });
   }
 
   //LOGIN
   login(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/login`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/login`, data, { headers: headers });
+  }
+
+  //REGISTRO
+  registro(data: any): Observable<any> {
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/usuario`, data, { headers: headers });
   }
 
   //FOTOS
   addFoto(id: number, data: any): Observable<any> {
-      const headers = this.tokenHeaders()
-      return this.http.post(`${this.ApiUrl}/fotos/${id}`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/fotos/${id}`, data, {
+      headers: headers,
+    });
   }
 
   allFotos(id: number): Observable<any> {
     const data = {
       Token: this.obtenerToken(),
     };
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/allfotos/${id}`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/allfotos/${id}`, data, {
+      headers: headers,
+    });
   }
 
   rutaFoto(ruta: string): Observable<any> {
@@ -124,18 +152,18 @@ export class ProductoService {
 
   //COMPRAS
   addCompra(data: any): Observable<any> {
-    const headers = this.tokenHeaders()
-    return this.http.post(`${this.ApiUrl}/compra`, data, { headers:headers });
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/compra`, data, { headers: headers });
   }
 
-  tokenHeaders(){
+  tokenHeaders() {
     const token = this.obtenerToken();
 
     if (token !== null) {
       const headers = new HttpHeaders({
-        'Token': token
+        Token: token,
       });
-      return headers
+      return headers;
     } else {
       throw new Error('El token es nulo');
     }

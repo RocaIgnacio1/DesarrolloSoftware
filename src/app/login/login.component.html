@@ -1,6 +1,6 @@
 <div class="contenedor-principal">
-  <div class="container" id="container">
-    <div class="form-container sign-in-container" id="sign-in">
+  <div class="container">
+    <div class="form-container sign-in-container">
       <form [formGroup]="formLogin" (ngSubmit)="submitFormLogin()">
         <h2>Iniciar sesión</h2>
         <div class="form-floating mb-3">
@@ -11,11 +11,11 @@
               class="form-control"
               placeholder="Email"
               formControlName="email"
-              id="emailLogin"
+              (focus)="clearErrorMessage()"
             />
             <label for="emailLogin">Email / Nombre de usuario</label>
-            <div id="validationServerMailFeedback" class="invalid-feedback">
-              Mail obligatorio.
+            <div class="invalid-feedback">
+              Mail / Nombre de usuario obligatorio.
             </div>
           </div>
 
@@ -28,12 +28,10 @@
               class="form-control"
               placeholder="Password"
               formControlName="password"
-              id="passwordLogin"
+              (focus)="clearErrorMessage()"
             />
             <label for="passwordLogin">Contraseña</label>
-            <div id="validationServerPasswordFeedback" class="invalid-feedback">
-              Contraseña obligatoria.
-            </div>
+            <div class="invalid-feedback">Contraseña obligatoria.</div>
           </div>
         </div>
         <div
@@ -56,18 +54,15 @@
           data-locale="es-419"
           data-logo_alignment="left"
         ></div>
-        <button
-          class="boton-inicio-sesion"
-          type="submit"
-          routerLink=""
-          (click)="loginOnclick()"
-        >
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+          {{ errorMessage }}
+        </div>
+        <button class="boton-inicio-sesion" type="submit" routerLink="">
           Iniciar sesión
         </button>
         <button
           type="button"
           class="btn btn-link botonRegistrarse"
-          id="signUp"
           (click)="cambiarVista()"
         >
           <em>No tiene cuenta? Registrarse</em>
