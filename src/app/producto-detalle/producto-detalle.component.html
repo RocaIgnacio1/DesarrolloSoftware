@@ -1,36 +1,42 @@
-<div class="producto-detalle">
-  <div class="imagen-y-compra">
-    <div class="imagen">
-      <img [src]="producto.Foto" alt="Imagen del producto" />
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <img [src]="producto.Foto" alt="Imagen del producto" class="card-img-top border rounded" />
+        <div class="card-body border shadow p-3">
+          <h2 class="card-title">{{ producto.Nombre }}</h2>
+          <p class="card-text">Descripción: {{ producto.Descripcion }}</p>
+        </div>
+      </div>
     </div>
-    <div class="datos-compra">
-      <p>Precio: ${{ producto.PrecioActual }}</p>
-      <p>
-        Cantidad:
-        <input
-          type="number"
-          [value]="cantidad"
-          (input)="actualizarCantidad($event)"
-          min="1"
-          class="input-cantidad"
-        />
-      </p>
-      <p>Total: ${{ total }}</p>
-
-      <button
-        class="agregar"
-        (click)="agregarCarrito(producto)"
-      >
-        Agregar
-      </button>
-      <button class="cancelar" (click)="irFeria()">
-        Cancelar
-      </button>
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column border shadow p-3">
+          <p class="card-text custom-card-text mx-auto mt-auto">Precio: ${{ producto.PrecioActual }}</p>
+          <p class="card-text custom-card-text mx-auto mt-auto">Cantidad en stock: {{ producto.Cantidad - producto.Vendidos }}</p>
+          <div class="mb-3 d-flex align-items-center mx-auto mt-auto">
+            <p class="card-text me-2 custom-card-text">Cantidad:</p>
+            <input
+              type="number"
+              [value]="cantidad"
+              (input)="actualizarCantidad($event)"
+              min="1"
+              max="{{ producto.Cantidad }}"
+              class="form-control"
+            />
+          </div>
+          <div class="d-grid gap-2 col-12 mx-auto mt-auto text-center">
+            <p class="card-text custom-card-text border shadow p-3">Total: ${{ total }}</p>
+            <button class="btn btn-success btn-lg" (click)="agregarCarrito(producto)">
+              Agregar
+            </button>
+            <button class="btn btn-danger btn-lg" (click)="irFeria()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="info-producto">
-    <h2>{{ producto.Nombre }}</h2>
-    <p>Descripción: {{ producto.Descripcion }}</p>
-    <p>Stock: {{ producto.Cantidad - producto.Vendidos }}</p>
   </div>
 </div>
+

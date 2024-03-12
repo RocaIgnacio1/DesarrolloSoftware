@@ -28,19 +28,20 @@
     <div class="col-md-6">
       <div class="mb-3">
         <div class="form-floating">
-          <input type="text" class="form-control" [(ngModel)]="usuario.Mail" />
-          <label for="email">Email</label>
+          <input type="text" class="form-control only-view" [(ngModel)]="usuario.Mail" tabindex="-1" />
+          <label for="email">Email (no editable)</label>
           <div class="invalid-feedback">Mail obligatorio.</div>
         </div>
       </div>
       <div class="mb-3">
         <div class="form-floating">
           <input
-            type="text"
-            class="form-control"
+            class="form-control cursor-default only-view"
+            readonly
             [(ngModel)]="usuario.Username"
+            tabindex="-1"
           />
-          <label for="nombreUsuario">Nombre de usuario</label>
+          <label for="nombreUsuario">Nombre de usuario (no editable)</label>
           <div class="invalid-feedback">Nombre de usuario obligatorio.</div>
         </div>
       </div>

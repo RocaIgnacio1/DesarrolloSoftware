@@ -1,8 +1,26 @@
-@media (max-width: 768px) {
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-card-text{
+  font-size: 1.9rem;
+  color: #333;
+}
+
+input[type="number"] {
+  width: 80px;
+}
+
+/*@media (max-width: 768px) {
   .producto-detalle {
     display: grid;
     font-family: 'Montserrat', sans-serif;
-    /*border: 1px solid #ddd;*/
     min-height: 93.5vh;
     padding-left: 15px;
     padding-right: 15px;
@@ -28,7 +46,6 @@
 
   .datos-compra {
     grid-row: 2;
-    /*border: 1px solid #ddd;*/
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -106,7 +123,6 @@
     align-items: start;
     grid-template-rows: min-content;
     min-height: 93.5vh;
-    /*border: 1px solid #ddd;*/
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -129,7 +145,6 @@
 
   .datos-compra {
     overflow: hidden;
-    /*border: 1px solid #ddd;*/
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -205,4 +220,4 @@
     text-align: center; 
     width: 50px
   }
-}
+}*/

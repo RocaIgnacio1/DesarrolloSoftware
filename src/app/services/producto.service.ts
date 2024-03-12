@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductoService {
-  public ApiUrl = 'http://localhost:3005';
+  public readonly ApiUrl: string = environment.apiUrl;
   private readonly globalToken = 'mi_aplicacion_token';
   private readonly globalID = 'mi_aplicacion_id';
 
@@ -123,6 +124,12 @@ export class ProductoService {
   registro(data: any): Observable<any> {
     const headers = this.tokenHeaders();
     return this.http.post(`${this.ApiUrl}/usuario`, data, { headers: headers });
+  }
+
+  //DIRECCIONES
+  getDireccion(data: any): Observable<any> {
+    const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/alldirecciones`, data, { headers: headers });
   }
 
   //FOTOS
