@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegistroComponent {
   // Creacion del formulario de tipo FormGroup
   public formRegister!: FormGroup;
+  mensaje: string = '';
 
   constructor(
     private productoService: ProductoService,
@@ -63,7 +64,6 @@ export class RegistroComponent {
     }
 
     const password = passwordControl.value;
-    console.log(password);
     const regexMayuscula = /[A-Z]/;
     const regexNumero = /[0-9]/;
     const regexCaracterEspecial = /[!@#$%^&*()\-_=+[\]{}|;:'",.<>/?\\]/;
@@ -107,21 +107,44 @@ export class RegistroComponent {
 
     this.productoService.registro(jsondata).subscribe(
       (data: any) => {
-
         const jsonlogin = {
           Username: this.formRegister.get('nombreUsuario')?.value,
-          Password: this.formRegister.get('password')?.value
+          Password: this.formRegister.get('password')?.value,
         };
-        console.log(jsonlogin)
-        this.productoService.login(jsonlogin).subscribe(
-          (data: any) => {
-            this.productoService.guardarID(data.ID);
-            this.productoService.guardarToken(data.token);
-            this.router.navigate(['/feria']);
-          }
-        );
+        console.log(jsonlogin);
+        this.productoService.login(jsonlogin).subscribe((data: any) => {
+          this.productoService.guardarID(data.ID);
+          this.productoService.guardarToken(data.token);
+          this.router.navigate(['/feria']);
+        });
       },
-      (error) => console.log(error)
+      (error) => {
+        console.log(error);
+        switch (error.error) {
+          case 'Campos incompletos':
+            this.mensaje = 'Por favor, complete todos los campos';
+            break;
+          case 'Formato correo incorrecto':
+            this.mensaje = 'El formato del correo es incorrecto';
+            break;
+          case 'Contraseña invalida':
+            this.mensaje =
+              'La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un carácter especial';
+            break;
+          case 'Tipo de usuario incorrecto':
+            this.mensaje = 'El tipo de usuario es incorrecto';
+            break;
+          case 'Username en uso':
+            this.mensaje = 'El nombre de usuario ya está en uso';
+            break;
+          case 'Mail en uso':
+            this.mensaje = 'El correo electrónico ya está en uso';
+            break;
+          default:
+            this.mensaje = 'Ha ocurrido un error';
+        }
+        return this.mensaje;
+      }
     );
   }
 
