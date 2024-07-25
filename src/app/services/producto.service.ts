@@ -76,9 +76,9 @@ export class ProductoService {
     return this.http.put(`${this.ApiUrl}/articulo`, data, { headers: headers });
   }
 
-  deleteProducto(data: any): Observable<any> {
+  deleteProducto(id: number): Observable<any> {
     const headers = this.tokenHeaders();
-    return this.http.put(`${this.ApiUrl}/onearticulo`, data, {
+    return this.http.delete(`${this.ApiUrl}/onearticulo/${id}`, {
       headers: headers,
     });
   }

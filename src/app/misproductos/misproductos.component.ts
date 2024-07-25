@@ -76,10 +76,8 @@ export class MisProductosComponent {
     if (
       window.confirm('¿Estás seguro de que quieres eliminar este producto?')
     ) {
-      const jsonid = {
-        ID: id,
-      };
-      this.productoService.deleteProducto(jsonid).subscribe({});
+
+      this.productoService.deleteProducto(id).subscribe({});
       setTimeout(() => {
         location.reload();
       }, 500);

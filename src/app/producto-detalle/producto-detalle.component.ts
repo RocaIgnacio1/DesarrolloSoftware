@@ -58,7 +58,7 @@ export class ProductoDetalleComponent {
   }
 
   agregarCarrito(item: any) {
-    if(item.IDUsuario != this.productoService.obtenerID()){
+    if(item.IDUsuario != this.productoService.obtenerID() && this.cantidad <= (this.producto.Cantidad - this.producto.Vendidos)){
       
       let icarrito: any = {
         Foto: item.Foto,
@@ -96,7 +96,7 @@ export class ProductoDetalleComponent {
       this.router.navigate(['/carrito']);
     }
 
-    else{alert('No puede comprar un producto creado por usted')}
+    else{alert('No puede comprar un producto creado por usted o excede el stock disponible')}
 
   }
 }

@@ -21,7 +21,7 @@
               [value]="cantidad"
               (input)="actualizarCantidad($event)"
               min="1"
-              max="{{ producto.Cantidad }}"
+              max="{{ producto.Cantidad - producto.Vendidos }}"
               class="form-control"
             />
           </div>
