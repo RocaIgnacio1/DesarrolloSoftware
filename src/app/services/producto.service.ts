@@ -116,14 +116,14 @@ export class ProductoService {
 
   //LOGIN
   login(data: any): Observable<any> {
-    const headers = this.tokenHeaders();
-    return this.http.post(`${this.ApiUrl}/login`, data, { headers: headers });
+    //const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/login`, data);
   }
 
   //REGISTRO
   registro(data: any): Observable<any> {
-    const headers = this.tokenHeaders();
-    return this.http.post(`${this.ApiUrl}/usuario`, data, { headers: headers });
+    //const headers = this.tokenHeaders();
+    return this.http.post(`${this.ApiUrl}/usuario`, data);
   }
 
   //DIRECCIONES
@@ -141,9 +141,7 @@ export class ProductoService {
   }
 
   allFotos(id: number): Observable<any> {
-    const data = {
-      Token: this.obtenerToken(),
-    };
+    const data = {};
     const headers = this.tokenHeaders();
     return this.http.post(`${this.ApiUrl}/allfotos/${id}`, data, {
       headers: headers,
@@ -151,9 +149,6 @@ export class ProductoService {
   }
 
   rutaFoto(ruta: string): Observable<any> {
-    const data = {
-      Token: this.obtenerToken(),
-    };
     return this.http.get(`${this.ApiUrl}/RutasArticulos/${ruta}`);
   }
 
