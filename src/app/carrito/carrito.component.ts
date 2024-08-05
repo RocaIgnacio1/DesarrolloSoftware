@@ -73,7 +73,7 @@ export class CarritoComponent {
         IDArticulo: prod.ID,
         Cantidad: prod.Cantidad,
         IDUsuario: this.productoService.obtenerID(),
-        IDDireccion: this.direccion.ID,
+        IDDireccion: 1000,
         MetodoPago: 'EFECTIVO',
       };
 
