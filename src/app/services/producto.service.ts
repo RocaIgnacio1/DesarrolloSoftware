@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../environments/environments';
 
 @Injectable({
@@ -11,32 +12,33 @@ export class ProductoService {
   private readonly globalToken = 'mi_aplicacion_token';
   private readonly globalID = 'mi_aplicacion_id';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cookieService: CookieService) {}
 
-  guardarToken(token: string): void {
-    localStorage.setItem(this.globalToken, token);
-  }
+    guardarToken(token: string): void {
+      this.cookieService.set(this.globalToken, token);
+    }
+  
+    obtenerToken(): string | null {
+      return this.cookieService.get(this.globalToken);
+    }
+  
+    eliminarToken(): void {
+      this.cookieService.delete(this.globalToken);
+    }
+  
+    guardarID(id: number): void {
+      this.cookieService.set(this.globalID, id.toString());
+    }
+  
+    obtenerID(): number | null {
+      const idString = this.cookieService.get(this.globalID);
+      return idString ? parseInt(idString, 10) : null;
+    }
+  
+    eliminarID(): void {
+      this.cookieService.delete(this.globalID);
+    }
 
-  obtenerToken(): string | null {
-    return localStorage.getItem(this.globalToken);
-  }
-
-  eliminarToken(): void {
-    localStorage.removeItem(this.globalToken);
-  }
-
-  guardarID(id: number): void {
-    localStorage.setItem(this.globalID, id.toString());
-  }
-
-  obtenerID(): number | null {
-    const idString = localStorage.getItem(this.globalID.toString());
-    return idString ? parseInt(idString, 10) : null;
-  }
-
-  eliminarID(): void {
-    localStorage.removeItem(this.globalID.toString());
-  }
   // USUARIO
   getUsuario(data: any): Observable<any> {
     const headers = this.tokenHeaders();
