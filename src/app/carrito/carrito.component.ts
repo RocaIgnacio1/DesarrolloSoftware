@@ -4,68 +4,85 @@ import { ProductoService } from '../services/producto.service';
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.css']
+  styleUrls: ['./carrito.component.css'],
 })
 export class CarritoComponent {
+
+  jsonDireccion: any;
+  StockActualizado: any;
   listaItemsCarrito: any[] = [];
-  //public precioTotal: number=0;
-  precioTotal: number=0;
+  direccion: any = {};
+  precioTotal: number = 0;
   item: any;
-  
-  constructor(private productoService: ProductoService){}
+
+  constructor(private productoService: ProductoService) {
+    this.jsonDireccion = {
+      ID: this.productoService.obtenerID()
+    };
+
+    this.productoService.getDireccion(this.jsonDireccion).subscribe((data: any) => {
+      this.direccion = data[0];
+    });
+  }
 
   ngOnInit(): void {
-    let carritoStorage = localStorage.getItem("carrito") as string;
-    //let precioTotalStorage = localStorage.getItem('precioTotal'); 
-    let precioTotalStorage = this.precioTotal;
+    // Obtengo el JSON de la cookie
+    let carritoCookie = document.cookie.replace(
+      /(?:(?:^|.*;\s*)carrito\s*=\s*([^;]*).*$)|^.*$/,
+      '$1'
+    );
 
+    if (carritoCookie) {
+      // Si la cookie "carrito" existe, no necesitas JSON.parse ya que los datos están en formato JSON
+      this.listaItemsCarrito = JSON.parse(carritoCookie);
 
-    let carrito = JSON.parse(carritoStorage);
-    this.listaItemsCarrito = carrito;
-    if (precioTotalStorage !== null) {
-      for(this.item of this.listaItemsCarrito){
-          this.precioTotal = this.precioTotal + this.item.PrecioActual;
+      // Calcula el precio total
+      this.precioTotal = 0;
+      for (let item of this.listaItemsCarrito) {
+        this.precioTotal += item.PrecioActual;
       }
-      //this.precioTotal = parseFloat(precioTotalStorage); // Convierte el valor a número
     }
   }
 
   vaciarCarrito() {
-    localStorage.clear();
+    document.cookie = 'carrito=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
     this.listaItemsCarrito = [];
     this.precioTotal = 0;
   }
 
   sacarDelCarrito(item: any) {
     if (item) {
-      // Encuentra el índice del elemento en el array
       const index = this.listaItemsCarrito?.indexOf(item);
 
-      // Verifica si el elemento se encontró en el carrito
       if (index !== -1) {
         this.listaItemsCarrito?.splice(index, 1);
 
-        // Actualiza
         this.precioTotal -= item.PrecioActual;
-        localStorage.setItem("carrito", JSON.stringify(this.listaItemsCarrito));
+        document.cookie =
+          'carrito=' +
+          JSON.stringify(this.listaItemsCarrito) +
+          '; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/';
       }
     }
   }
 
   comprar() {
-    
     this.listaItemsCarrito.forEach((prod: any) => {
+   
       var jsoncomprar = {
-        IDArticulo : prod.ID,
-        Cantidad : prod.Cantidad,
-        IDUsuario : this.productoService.obtenerID(),
-        IDDireccion : 1014,
-        MetodoPago : 'EFECTIVO'
-      } 
-      console.log(prod);
-      this.productoService.addCompra(jsoncomprar).subscribe((data: any) => {
-        console.log("Eso Brad");
-      });
-      });
+        IDArticulo: prod.ID,
+        Cantidad: prod.Cantidad,
+        IDUsuario: this.productoService.obtenerID(),
+        IDDireccion: 1000,
+        MetodoPago: 'EFECTIVO',
+      };
+
+      this.productoService.addCompra(jsoncomprar).subscribe((data: any) => {});
+    });
+    document.cookie = 'carrito=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    this.listaItemsCarrito = [];
+    this.precioTotal = 0;
+
+    alert("Compra hecha con exito")
   }
 }

@@ -6,25 +6,24 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-feria',
   templateUrl: './feria.component.html',
-  styleUrls: ['./feria.component.css']
+  styleUrls: ['./feria.component.css'],
 })
 export class FeriaComponent implements OnInit {
   producto: any;
-  productoAll:any;
+  productoAll: any;
   filterSearch: FormGroup;
 
   constructor(
     private productoService: ProductoService,
     private formBuilder: FormBuilder,
     private router: Router
-    
   ) {
-      // Inicializa el formulario dentro del constructor
+    // Inicializa el formulario dentro del constructor
     this.filterSearch = this.formBuilder.group({
       nombre: '',
       categoria: '',
       precioMin: null,
-      precioMax: null
+      precioMax: null,
     });
   }
 
@@ -36,28 +35,34 @@ export class FeriaComponent implements OnInit {
           this.productoService.allFotos(prod.ID).subscribe((data: any) => {
             prod.Foto = this.productoService.ApiUrl + '/' + data;
           });
-      });
+        });
         this.productoAll = this.producto;
-    }
-  });
+      },
+    });
   }
-
 
   onSubmitFilter() {
     if (this.filterSearch.valid) {
       const filters = this.filterSearch.value;
-          this.producto = this.productoAll.filter((productoItem: any) => {
-            return (
-              (!filters.nombre || productoItem.Nombre.toLowerCase().includes(filters.nombre.toLowerCase())) &&
-              (!filters.categoria || productoItem.Categoria.toLowerCase().includes(filters.categoria.toLowerCase())) &&
-              (!filters.precioMin || productoItem.PrecioActual >= filters.precioMin) &&
-              (!filters.precioMax || productoItem.PrecioActual <= filters.precioMax)
-            );
-          });
+      this.producto = this.productoAll.filter((productoItem: any) => {
+        return (
+          (!filters.nombre ||
+            productoItem.Nombre.toLowerCase().includes(
+              filters.nombre.toLowerCase()
+            )) &&
+          (!filters.categoria ||
+            productoItem.Categoria.toLowerCase().includes(
+              filters.categoria.toLowerCase()
+            )) &&
+          (!filters.precioMin ||
+            productoItem.PrecioActual >= filters.precioMin) &&
+          (!filters.precioMax || productoItem.PrecioActual <= filters.precioMax)
+        );
+      });
     }
   }
 
-  verProducto(id: number){
+  verProducto(id: number) {
     this.router.navigate(['/producto-detalle', id]);
   }
 }

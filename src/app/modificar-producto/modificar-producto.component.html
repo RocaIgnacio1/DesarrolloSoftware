@@ -1,42 +1,72 @@
-<div class="new-product" >
-    <h2>Modificar Producto</h2>
-    <p><span>Campos obligatorios</span><span class="asterisk">*</span></p>
-      <div class="principal-info">
-        <label class="product-name">nombre <span class="asterisk">*</span></label>
-        <input class="product-name-input form-control" [(ngModel)]="producto.Nombre">
+<div class="new-product">
+  <h2>Modificar Producto</h2>
+  <p><span>Campos obligatorios</span><span class="asterisk">*</span></p>
+  <div class="principal-info">
+    <label class="product-name">nombre <span class="asterisk">*</span></label>
+    <input
+      class="product-name-input form-control"
+      [(ngModel)]="producto.Nombre"
+    />
 
-        <label class="product-price">Precio <span class="asterisk">*</span></label>
-        <input class="product-price-input form-control" [(ngModel)]="producto.PrecioActual">
+    <label class="product-price">Precio <span class="asterisk">*</span></label>
+    <input
+      class="product-price-input form-control"
+      [(ngModel)]="producto.PrecioActual"
+    />
 
+    <label class="product-category"
+      >Categoría <span class="asterisk">*</span></label
+    >
+    <select
+      class="product-category-input"
+      [(ngModel)]="selectedCategory.Nombre"
+      (change)="onCategoryChange()"
+    >
+      <option>{{ selectedCategory.Nombre }}</option>
+      <option
+        *ngFor="let categoria of categorias"
+        [value]="categoria.Descripcion"
+      >
+        {{ categoria.Descripcion }}
+      </option>
+    </select>
 
-        <label class="product-category">Categoría <span class="asterisk">*</span></label>
-        <select class="product-category-input" [(ngModel)]="selectedCategory.Nombre" (change) = "onCategoryChange()">
-            <option>{{ selectedCategory.Nombre }}</option>
-            <option *ngFor="let categoria of categorias" [value]="categoria.Descripcion">{{ categoria.Descripcion }}</option>
-        </select>
-        
-        <label style="grid-column: 1; grid-row: 6;">{{ label1Text }}</label>
-        <input style="grid-column: 1; grid-row: 7;"type="text" [(ngModel)]="descripcion1">
-        
-        <label style="grid-column: 2; grid-row: 6;">{{ label2Text }}</label>
-        <input style="grid-column: 2; grid-row: 7;" type="text" [(ngModel)]="descripcion2">
+    <label class="label-description-1">{{ label1Text }}</label>
+    <input
+      class="input-description-1"
+      type="text"
+      [(ngModel)]="descripcion1"
+    />
 
-        <label style="grid-column: 3; grid-row: 6;">{{ label3Text }}</label>
-        <input style="grid-column: 3; grid-row: 7;" type="text" [(ngModel)]="descripcion3">
-        
-        <label class="product-stock"  for="product-price">Stock <span class="asterisk">*</span></label>
-        <input class="product-stock-input form-control" [(ngModel)]="producto.Cantidad">
-        
-      </div>
+    <label class="label-description-2">{{ label1Text }}</label>
+    <input
+      class="input-description-2"
+      type="text"
+      [(ngModel)]="descripcion2"
+    />
 
+    <label class="label-description-3">{{ label1Text }}</label>
+    <input
+      class="input-description-3"
+      type="text"
+      [(ngModel)]="descripcion3"
+    />
 
+    <label class="product-stock" for="product-price"
+      >Stock <span class="asterisk">*</span></label
+    >
+    <input
+      class="product-stock-input form-control"
+      [(ngModel)]="producto.Cantidad"
+    />
+  </div>
 
-      <label style="margin-bottom: 1%;" for="product-description">Descripción <span class="asterisk">*</span></label>
-      <textarea style="height: 70px;" [(ngModel)]="producto.Descripcion"></textarea>
+  <label style="margin-bottom: 1%" for="product-description"
+    >Descripción <span class="asterisk">*</span></label
+  >
+  <textarea class="input-description" [(ngModel)]="producto.Descripcion"></textarea>
 
-      
-      <div style="display: flex; justify-content: center; margin-top: 2%;">
-        <button type="submit" (click)="guardarCambios()">Guardar cambios</button>
-      </div>
-
+  <div class="button-save-changes">
+    <button type="submit" (click)="guardarCambios()">Guardar cambios</button>
+  </div>
 </div>

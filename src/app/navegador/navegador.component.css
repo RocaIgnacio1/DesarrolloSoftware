@@ -3,14 +3,14 @@
   margin-top: 5px;
   margin-bottom: 5px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .nav-link {
   color: #714707f5;
   transition: color 0.3s ease;
   background-color: white;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .nav-link.active {
@@ -26,12 +26,13 @@
 /* pantalla chica (menos de 800px) */
 @media (max-width: 800px) {
   .nav {
-    flex-direction: column; /* uno debajo del otro*/
-    align-items: center; 
+    flex-direction: column;
+    /* uno debajo del otro*/
+    align-items: center;
   }
 
   .nav-link {
-    margin-right: 0; 
-    margin-bottom: 5px; 
+    margin-right: 0;
+    margin-bottom: 5px;
   }
 }

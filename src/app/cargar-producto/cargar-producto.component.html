@@ -1,78 +1,214 @@
-<app-navegador></app-navegador>
-<div class="new-product" >
-    <h2>Cargar Producto</h2>
-    <p><span>Campos obligatorios</span><span class="asterisk">*</span></p>
-    <form [formGroup]="profileForm" (ngSubmit)="guardarProducto()">
-      <div class="principal-info">
-        <label class="product-name"  for="product-name">Nombre <span class="asterisk">*</span></label>
-        <input class="product-name-input form-control"  id="product-name" type="text" formControlName="productName"
-          [ngClass]="{
-            'is-invalid': profileForm.get('productName')?.invalid && profileForm.get('productName')?.touched,
-            'is-valid': profileForm.get('productName')?.valid && profileForm.get('productName')?.touched
-          }">
-        <div class="invalid-feedback asign-row-name" *ngIf="profileForm.get('productName')?.hasError('required') && profileForm.get('productName')?.touched">El nombre es requerido</div>
-        <div class="invalid-feedback asign-row-name" *ngIf="profileForm.get('productName')?.hasError('maxlength') && profileForm.get('productName')?.touched">El nombre no debe tener más de 30 caracteres</div>
-
-        <label class="product-price"  for="product-price">Precio <span class="asterisk">*</span></label>
-        <input class="product-price-input form-control"  id="product-price" type="text" formControlName="productPrice" placeholder="Ej: 100.00"
-          [ngClass]="{
-            'is-invalid': profileForm.get('productPrice')?.invalid && profileForm.get('productPrice')?.touched,
-            'is-valid': profileForm.get('productPrice')?.valid && profileForm.get('productPrice')?.touched
-          }">
-        <div class="invalid-feedback asign-row-price" *ngIf="profileForm.get('productPrice')?.hasError('required') && profileForm.get('productPrice')?.touched">El precio es requerido</div>
-        <div class="invalid-feedback asign-row-price" *ngIf="profileForm.get('productPrice')?.hasError('pattern') && profileForm.get('productPrice')?.touched">Ingrese un número</div>
-
-
-        <label class="product-category" for="product-categoria">Categoría <span class="asterisk">*</span></label>
-        <select class="product-category-input" id="product-category" formControlName="productCategory" [(ngModel)]="selectedCategory.Nombre" (change) = "onCategoryChange()">
-          <option value="" disabled selected>-- Selecciona una categoría --</option>
-          <option *ngFor="let categoria of categorias" [value]="categoria.Descripcion">{{ categoria.Descripcion }}</option>
-        </select>
-
-        <label style="grid-column: 1; grid-row: 6;">{{ label1Text }}</label>
-        <input style="grid-column: 1; grid-row: 7;"type="text" formControlName="productCharacteristic1">
-        
-        <label style="grid-column: 2; grid-row: 6;">{{ label2Text }}</label>
-        <input style="grid-column: 2; grid-row: 7;" type="text" formControlName="productCharacteristic2">
-
-        <label style="grid-column: 3; grid-row: 6;">{{ label3Text }}</label>
-        <input style="grid-column: 3; grid-row: 7;" type="text" formControlName="productCharacteristic3">
-        
-        <label class="product-stock"  for="product-price">Stock <span class="asterisk">*</span></label>
-        <input class="product-stock-input form-control"  id="product-stock" type="text" formControlName="productStock" placeholder="Ej: 10"
-          [ngClass]="{
-            'is-invalid': profileForm.get('productStock')?.invalid && profileForm.get('productStock')?.touched,
-            'is-valid': profileForm.get('productStock')?.valid && profileForm.get('productStock')?.touched
-          }">
-        <div class="invalid-feedback asign-row-stock" *ngIf="profileForm.get('productStock')?.hasError('required') && profileForm.get('productStock')?.touched">El stock es requerido</div>
-        <div class="invalid-feedback asign-row-stock" *ngIf="profileForm.get('productStock')?.hasError('pattern') && profileForm.get('productStock')?.touched">Ingrese un número</div>
-        
-      </div>
-
-
-
-      <label style="margin-bottom: 1%;" for="product-description">Descripción <span class="asterisk">*</span></label>
-      <textarea style="height: 70px;" class="form-control" id="product-description" formControlName="productDescription"
+<div class="new-product">
+  <h2>Cargar Producto</h2>
+  <p><span>Campos obligatorios</span><span class="asterisk">*</span></p>
+  <form [formGroup]="profileForm" (ngSubmit)="guardarProducto()">
+    <div class="principal-info">
+      <label class="product-name" for="product-name"
+        >Nombre <span class="asterisk">*</span></label
+      >
+      <input
+        class="product-name-input form-control"
+        id="product-name"
+        type="text"
+        formControlName="productName"
         [ngClass]="{
-          'is-invalid': profileForm.get('productDescription')?.invalid && profileForm.get('productDescription')?.touched,
-          'is-valid': profileForm.get('productDescription')?.valid && profileForm.get('productDescription')?.touched
-        }">
-      </textarea>
-      <div class="invalid-feedback asign-row-stock" *ngIf="profileForm.get('productDescription')?.hasError('required') && profileForm.get('productDescription')?.touched">La descripcion es requerida</div>
-      <div class="invalid-feedback" *ngIf="profileForm.get('productDescription')?.hasError('maxlength') && profileForm.get('productDescription')?.touched">La descripcion no debe tener mas de 300 caracteres</div>
-
-
-      <label for="product-photo">Foto <span class="asterisk">*</span></label>
-      <input id="product-photo" type="file" formControlName="productPhoto" (change)="onFileSelected($event)">
-
-
-      <div *ngIf="selectedFile" class="preview">
-        <img [src]="imageSrc" alt="Foto del Producto">
+          'is-invalid':
+            profileForm.get('productName')?.invalid &&
+            profileForm.get('productName')?.touched,
+          'is-valid':
+            profileForm.get('productName')?.valid &&
+            profileForm.get('productName')?.touched
+        }"
+      />
+      <div
+        class="invalid-feedback asign-row-name"
+        *ngIf="
+          profileForm.get('productName')?.hasError('required') &&
+          profileForm.get('productName')?.touched
+        "
+      >
+        El nombre es requerido
       </div>
-      
-      <div style="display: flex; justify-content: center; margin-top: 2%;">
-        <button type="submit" [disabled]="!profileForm.valid">Guardar Producto</button>
+      <div
+        class="invalid-feedback asign-row-name"
+        *ngIf="
+          profileForm.get('productName')?.hasError('maxlength') &&
+          profileForm.get('productName')?.touched
+        "
+      >
+        El nombre no debe tener más de 30 caracteres
       </div>
-    </form>
 
+      <label class="product-price" for="product-price"
+        >Precio <span class="asterisk">*</span></label
+      >
+      <input
+        class="product-price-input form-control"
+        id="product-price"
+        type="text"
+        formControlName="productPrice"
+        placeholder="Ej: 100.00"
+        [ngClass]="{
+          'is-invalid':
+            profileForm.get('productPrice')?.invalid &&
+            profileForm.get('productPrice')?.touched,
+          'is-valid':
+            profileForm.get('productPrice')?.valid &&
+            profileForm.get('productPrice')?.touched
+        }"
+      />
+      <div
+        class="invalid-feedback asign-row-price"
+        *ngIf="
+          profileForm.get('productPrice')?.hasError('required') &&
+          profileForm.get('productPrice')?.touched
+        "
+      >
+        El precio es requerido
+      </div>
+      <div
+        class="invalid-feedback asign-row-price"
+        *ngIf="
+          profileForm.get('productPrice')?.hasError('pattern') &&
+          profileForm.get('productPrice')?.touched
+        "
+      >
+        Ingrese un número
+      </div>
+
+      <label class="product-category" for="product-categoria"
+        >Categoría <span class="asterisk">*</span></label
+      >
+      <select
+        class="product-category-input"
+        id="product-category"
+        formControlName="productCategory"
+        [(ngModel)]="selectedCategory.Nombre"
+        (change)="onCategoryChange()"
+      >
+        <option value="" disabled selected>
+          -- Selecciona una categoría --
+        </option>
+        <option
+          *ngFor="let categoria of categorias"
+          [value]="categoria.Descripcion"
+        >
+          {{ categoria.Descripcion }}
+        </option>
+      </select>
+
+      <label class="label-description-1">{{ label1Text }}</label>
+      <input
+        class="input-description-1"
+        type="text"
+        formControlName="productCharacteristic1"
+      />
+
+      <label class="label-description-2">{{ label2Text }}</label>
+      <input
+        class="input-description-2"
+        type="text"
+        formControlName="productCharacteristic2"
+      />
+
+      <label class="label-description-3">{{ label3Text }}</label>
+      <input
+        class="input-description-3"
+        type="text"
+        formControlName="productCharacteristic3"
+      />
+
+      <label class="product-stock" for="product-price"
+        >Stock <span class="asterisk">*</span></label
+      >
+      <input
+        class="product-stock-input form-control"
+        id="product-stock"
+        type="text"
+        formControlName="productStock"
+        placeholder="Ej: 10"
+        [ngClass]="{
+          'is-invalid':
+            profileForm.get('productStock')?.invalid &&
+            profileForm.get('productStock')?.touched,
+          'is-valid':
+            profileForm.get('productStock')?.valid &&
+            profileForm.get('productStock')?.touched
+        }"
+      />
+      <div
+        class="invalid-feedback asign-row-stock"
+        *ngIf="
+          profileForm.get('productStock')?.hasError('required') &&
+          profileForm.get('productStock')?.touched
+        "
+      >
+        El stock es requerido
+      </div>
+      <div
+        class="invalid-feedback asign-row-stock"
+        *ngIf="
+          profileForm.get('productStock')?.hasError('pattern') &&
+          profileForm.get('productStock')?.touched
+        "
+      >
+        Ingrese un número
+      </div>
+    </div>
+
+    <label style="margin-bottom: 1%" for="product-description"
+      >Descripción <span class="asterisk">*</span></label
+    >
+    <textarea
+      style="height: 70px"
+      class="form-control"
+      id="product-description"
+      formControlName="productDescription"
+      [ngClass]="{
+        'is-invalid':
+          profileForm.get('productDescription')?.invalid &&
+          profileForm.get('productDescription')?.touched,
+        'is-valid':
+          profileForm.get('productDescription')?.valid &&
+          profileForm.get('productDescription')?.touched
+      }"
+    >
+    </textarea>
+    <div
+      class="invalid-feedback asign-row-stock"
+      *ngIf="
+        profileForm.get('productDescription')?.hasError('required') &&
+        profileForm.get('productDescription')?.touched
+      "
+    >
+      La descripcion es requerida
+    </div>
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        profileForm.get('productDescription')?.hasError('maxlength') &&
+        profileForm.get('productDescription')?.touched
+      "
+    >
+      La descripcion no debe tener mas de 300 caracteres
+    </div>
+
+    <label for="product-photo">Foto <span class="asterisk">*</span></label>
+    <input
+      id="product-photo"
+      type="file"
+      formControlName="productPhoto"
+      (change)="onFileSelected($event)"
+    />
+
+    <div *ngIf="selectedFile" class="preview">
+      <img [src]="imageSrc" alt="Foto del Producto" />
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-top: 2%">
+      <button type="submit" [disabled]="!profileForm.valid">
+        Guardar Producto
+      </button>
+    </div>
+  </form>
 </div>
