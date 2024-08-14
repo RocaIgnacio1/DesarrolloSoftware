@@ -20,6 +20,7 @@ export class MiCuentaComponent {
   passwordActualIncorrecta: boolean = false;
   passwordNuevaNoValida: boolean = false;
   exito: boolean = false;
+  exito2: boolean = false;
 
   constructor(
     private productoService: ProductoService,
@@ -39,6 +40,7 @@ export class MiCuentaComponent {
   }
 
   guardarCambiosPublicos() {
+    this.exito2 = false;
     const datosModificados = {
       ID: this.usuario.ID,
       Nombre: this.usuario.Nombre,
@@ -47,9 +49,30 @@ export class MiCuentaComponent {
       Username: this.usuario.Username,
       Password: this.usuario.Password,
       TipoUsuario: 'USER',
+      
     };
 
-    this.productoService.updateUsuario(datosModificados).subscribe({});
+    this.productoService.updateUsuario(datosModificados).subscribe(
+      (respuesta: any) => {},
+      (error: any) => {
+        if (error.status === 200) {
+          // Si el error es 200, consideramos que la contraseña se actualizó correctamente
+          console.log('Datos actualizados correctamente');
+          this.exito2 = true;
+          setTimeout(() => {
+            // Recargar la página
+            window.location.reload();
+          }, 1500);
+        } else {
+          // Si el error no es 200, mostramos un mensaje de error
+          console.error(
+            'Error en la actualización de la contraseña:',
+            error
+          );
+          this.passwordNuevaNoValida = true;
+        }
+      }
+    );
   }
 
   guardarCambiosPrivados() {

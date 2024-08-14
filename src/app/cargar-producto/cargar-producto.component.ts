@@ -93,32 +93,33 @@ export class CargarProductoComponent implements OnInit {
       this.idcaracteristicas = data;
     });
     switch (this.selectedCategory.ID) {
-      case 1000: //Alfarería
-        this.label1Text = 'Medidas';
-        this.label2Text = 'Color';
-        this.label3Text = 'Técnica';
+      case 1000: // Cerámica
+        this.label1Text = 'Tipo de arcilla';
+        this.label2Text = 'Técnica de modelado';
+        this.label3Text = 'Tipo de esmalte';
         break;
-      case 1001: //Tejido a mano
-        this.label1Text = 'Medidas';
-        this.label2Text = 'Material';
-        this.label3Text = 'Diseño';
+      case 1001: // Tejidos
+        this.label1Text = 'Tipo de fibra';
+        this.label2Text = 'Técnica de tejido';
+        this.label3Text = 'Patrón o diseño';
         break;
-      case 1002: //Joyería
+      case 1002: // Joyería
         this.label1Text = 'Material';
-        this.label2Text = 'Diseño';
-        this.label3Text = 'Técnica';
+        this.label2Text = 'Técnica de elaboración';
+        this.label3Text = 'Tipo de cierre';
         break;
-      case 1003: //Instrumentos y juguetes
+      case 1003: // Cestería
         this.label1Text = 'Material';
-        this.label2Text = 'Diseño';
-        this.label3Text = 'Edad recomendada';
+        this.label2Text = 'Técnica de tejido';
+        this.label3Text = 'Tamaño del cesto';
         break;
-      case 1004: //Talabartería
-        this.label1Text = 'Medidas';
-        this.label2Text = 'Detalles';
-        this.label3Text = 'Diseño';
+      case 1004: // Tallado en madera
+        this.label1Text = 'Tipo de madera';
+        this.label2Text = 'Herramientas utilizadas';
+        this.label3Text = 'Acabado';
         break;
     }
+      
   }
 
   guardarProducto() {
